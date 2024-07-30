@@ -1,42 +1,53 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { theme } from "../theme";
 
 interface BubbleProps {
-    margin: string;
-    borderwidth: string;
+    margins: any;
+    borderwidths: any;
     bordercolor: string;
-    sz: string;
+    sizes: any;
     colorfill?: string;
     imgfill?: string;
 }
 
 const StyledBubble = styled.div<BubbleProps>`
   position: relative;
-  margin: ${(props) => props.margin};
   border-radius: 50%;
   border-style: solid;
-  border-width: ${(props) => props.borderwidth};
   border-color: ${(props) => props.bordercolor};
-  width: ${(props) => props.sz};
-  height: ${(props) => props.sz};
   background-color: ${(props) => props.colorfill};
   background-image: url(${(props) => props.imgfill});
   background-position: center;
   background-size: cover;
+
+  @media (${theme.breakpoints.xs}) {
+    margin: ${(props) => props.margins.xs};
+    min-width: ${(props) => props.sizes.xs};
+    min-height: ${(props) => props.sizes.xs};
+    border-width: ${(props) => props.borderwidths.xs};
+  }
+
+  @media (${theme.breakpoints.sm}) {
+    margin: ${(props) => props.margins.sm};
+    min-width: ${(props) => props.sizes.sm};
+    min-height: ${(props) => props.sizes.sm};
+    border-width: ${(props) => props.borderwidths.sm};
+  }
 `;
 
 function Bubble(
-  margin: string = "auto",
-  borderWidth: string, 
+  margins: any,
+  borderWidths: any, 
   borderColor: string, 
-  size: string, 
-  colorFill: string = null, 
-  imageFill: string = null) {
+  sizes: any, 
+  colorFill: string = "none", 
+  imageFill: string = "none") {
     return <StyledBubble 
-      margin={margin}
-      borderwidth={borderWidth} 
+      margins={margins}
+      borderwidths={borderWidths} 
       bordercolor={borderColor} 
-      sz={size}
+      sizes={sizes}
       colorfill={colorFill}
       imgfill={imageFill}>
       </StyledBubble>

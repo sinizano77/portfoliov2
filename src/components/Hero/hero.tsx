@@ -1,57 +1,106 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { heroData } from "../../db/mainDb";
+import { bubbleData } from "./bubbleHeroData";
 import Bubble from "../bubble";
-
+import { theme } from "../../theme";
 //CSS styling for each element
 
-const StyledHero = styled.div`
+const StyledHero = styled.section`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-start;
+  position: relative;
+  top: 1.5vw;
+  background-image: linear-gradient(180deg, white, #D9D9D9);
+  padding-bottom: 10vw;
+  padding-top: 5vw;
+
+  @media (${theme.breakpoints.xs}) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 5vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+
+  @media (${theme.breakpoints.sm}) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   .textContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    max-width: 45%;
-    margin-left: 2rem;
+
+    @media (${theme.breakpoints.xs}) {
+      max-width: 100%;
+      text-align: center;
+      margin-left: none;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      max-width: 43vw;
+      text-align: start;
+      margin-left: 7vw;
+    }
   }
 
   .heroText {
     font-family: 'Orkney';
-    font-size: 25px;
+    font-size: 1.9vw;
     position: relative;
-    left: 5.3rem;
     text-wrap: wrap;
-    max-width: 90%;
+
+    @media (${theme.breakpoints.xs}) {
+      font-size: 4.5vw;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      font-size: 1.9vw;
+    }
   }
 
   .typedText {
-    margin: 1rem 11rem -2.5rem 10rem;
     position: relative;
-    right: 5rem;
     font-family: 'JetBrainsMono';
-    font-size: 60px;
-    min-width: 80%;
+    font-size: 5vw;
+
+    @media (${theme.breakpoints.xs}) {
+      font-size: 10vw;
+      max-height: 25vw;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      font-size: 5vw;
+      max-height: 13vw;
+    }
   }
   
   .bubbleContainer {
     display: flex;
+    position: relative;
     flex-direction: row;
     align-items: flex-start;
-    position: relative;
-    min-width: 50%;
-    margin-left: 10rem;
+    min-width: 45vw;
   }
-
   `;
-  
 
+function createBubble(bubble: any) {
+  const margins = bubble.margins;
+  const borderWidths = bubble.borderWidths;
+  const borderColor = bubble.borderColor;
+  const sizes = bubble.sizes;
+  const colorFill = bubble.colorFill;
+  const imageFill = bubble.imageFill
+  return (Bubble(margins, borderWidths, borderColor, sizes, colorFill, imageFill))
+}
 
 function Hero() {
+
   return (
     <StyledHero>
       <div className='textContainer'>
@@ -64,9 +113,9 @@ function Hero() {
           </div>
       </div>
       <div className='bubbleContainer'>
-        {Bubble("1rem -3rem 0 0","1rem", "#FFE601", "5.5rem", "#0086D1")}
-        {Bubble("25rem -11rem 0 0","0.65rem", "#35DE19", "3rem", "#FF3737")}
-        {Bubble("auto auto auto auto","1rem", "#FF5C00", "19rem", null, heroData.image)}
+        {createBubble(bubbleData.bubble1)}
+        {createBubble(bubbleData.bubble2)}
+        {createBubble(bubbleData.bubble3)}
       </div>
     </StyledHero>
   );
