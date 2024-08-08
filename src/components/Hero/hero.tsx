@@ -11,24 +11,20 @@ const StyledHero = styled.section`
   position: relative;
   top: 1.5vw;
   background-image: linear-gradient(180deg, white, #D9D9D9);
-  padding-bottom: 10vw;
-  padding-top: 5vw;
 
   @media (${theme.breakpoints.xs}) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     row-gap: 5vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    padding: 15vw 10vw 10vw;
   }
 
   @media (${theme.breakpoints.sm}) {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 5vw 0 10vw;
   }
 
   .textContainer {
