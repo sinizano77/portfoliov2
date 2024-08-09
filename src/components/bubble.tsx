@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { theme } from "../theme";
+import { theme } from "../global/theme";
 
 interface BubbleProps {
     margins: any;

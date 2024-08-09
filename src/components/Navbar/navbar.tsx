@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import * as React from "react";
 import styled from 'styled-components';
 import { navData } from "../../db/mainDb";
 import { NavLink } from "react-router-dom";
-import { theme } from "../../theme";
+import { theme } from "../../global/theme";
 import useMediaQuery from '../../hooks/useMediaQuery';
 
 //Dropdown logic needs heavy refactoring
@@ -15,13 +15,13 @@ const StyledNavBar= styled.nav`
   font-family: 'Orkney';
   font-size: 1.5vw;
   align-items: center;
-  padding: 1vw 0 1vw 0;
+  padding: 1.25vw 0 1.25vw 0;
   background-color: white;
   box-shadow: 0 5px 0.75vw 0 rgba(0,0,0,.1);
 
-  a:link, a:visited, a:hover, a:active  {      
+  a:link, a:visited, a:hover, a:active  {
     text-decoration: none !important;
-    color: #343434;
+    color: var(--dark-grey);
     margin: 0 2vw 0 2vw;
   }
   
@@ -55,24 +55,24 @@ const StyledMenuIcon = styled.div`
   .lines {
     width: 100%;
     height: 1vw;
-    background-color: #343434;
+    background-color: var(--dark-grey);
     margin: 1.5vw 0;
     border-radius: 3vw / 3vw
   }
 
   .lines.clicked:nth-child(1) {
     transform: translate(0, 2vw) rotate(-45deg);
-    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+    transition: var(--transition);
   }
 
   .lines.clicked:nth-child(2) {
     transform: translate(0, -2vw) rotate(45deg);
-    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+    transition: var(--transition);
   }
 
   .lines.unclicked {
     transform: rotate(0) translate(0);
-    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+    transition: var(--transition);
   }
 `;
 
@@ -91,7 +91,7 @@ const StyledDropdown = styled.div`
 
   a:link, a:visited, a:hover, a:active  {
     text-decoration: none !important;
-    color: #343434;
+    color: var(--dark-grey);
   }
 
   .mobileDropdownLinks {
@@ -109,7 +109,7 @@ const StyledDropdown = styled.div`
     display: flex;
     justify-content: center;
     border-bottom: solid 0.5vw;
-    border-color: #343434;
+    border-color: var(--dark-grey);
     list-style-type: none;
     padding: 4vw 0;
   }

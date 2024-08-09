@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import { heroData } from "../../db/mainDb";
 import { bubbleData } from "./bubbleHeroData";
 import Bubble from "../bubble";
-import { theme } from "../../theme";
+import { theme } from "../../global/theme";
 //CSS styling for each element
 
 const StyledHero = styled.section`
   display: flex;
   position: relative;
   top: 1.5vw;
-  background-image: linear-gradient(180deg, white, #D9D9D9);
+  background-image: var(--gradient);
 
   @media (${theme.breakpoints.xs}) {
     flex-direction: column;

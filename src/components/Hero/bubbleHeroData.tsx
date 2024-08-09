@@ -10,12 +10,12 @@ export const bubbleData = {
         xs: "2.5vw",
         sm: "1.4vw",
       },
-      borderColor: "#FFE601",
+      borderColor: "var(--yellow)",
       sizes: {
         xs: "15vw",
         sm: "7vw",
       },
-      colorFill: "#0086D1",
+      colorFill: "var(--cerulean-blue)",
       imageFill: "none"
     },
 
@@ -28,12 +28,12 @@ export const bubbleData = {
         xs: "2vw",
         sm: "0.8vw",
       },
-      borderColor: "#35DE19",
+      borderColor: "var(--lime-green)",
       sizes: {
         xs: "10vw",
         sm: "4vw",
       },
-      colorFill: "#FF3737",
+      colorFill: "var(--crimson-red)",
       imageFill: "none"
     },
 
@@ -46,7 +46,7 @@ export const bubbleData = {
         xs: "3.5vw",
         sm: "1.25vw",
       },
-      borderColor: "#FF5C00",
+      borderColor: "var(--orange)",
       sizes: {
         xs: "60vw",
         sm: "23vw",
