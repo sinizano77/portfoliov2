@@ -20,10 +20,30 @@ const StyledNavBar= styled.nav`
   background-color: white;
   box-shadow: 0 5px 0.75vw 0 rgba(0,0,0,.1);
 
-  a:link, a:visited, a:hover, a:active  {
+  a:link, a:visited, a:active  {
+    position: relative;
     text-decoration: none !important;
     color: var(--dark-grey);
     margin: 0 2vw 0 2vw;
+  }
+
+  a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.2vw;
+    bottom: -0.3vw;
+    left: 0;
+    background-color: var(--orange);
+    transform-origin: 50%;
+    transition: transform 0.25s ease-out;
+    border-radius: 20vw;
+  }
+
+  a:hover::after {
+    transform: scaleX(1);
+    transform-origin: 50%;
   }
   
   .desktopNavLinks {
