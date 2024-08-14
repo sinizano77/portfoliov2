@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { navData } from "../../db/mainDb";
 import { NavLink } from "react-router-dom";
 import { theme } from "../../global/theme";
+import { sidebarData } from "../../db/mainDb";
 import useMediaQuery from '../../hooks/useMediaQuery';
 
 //Dropdown logic needs heavy refactoring
@@ -80,6 +81,7 @@ const StyledMenuIcon = styled.div`
 const StyledDropdown = styled.div`
   display: flex;
   position: fixed;
+  flex-direction: column;
   justify-content: center;
   z-index: 1;
   min-width: 100%;
@@ -108,25 +110,21 @@ const StyledDropdown = styled.div`
   li {
     display: flex;
     justify-content: center;
-    border-bottom: solid 0.5vw;
-    border-color: var(--dark-grey);
     list-style-type: none;
-    padding: 4vw 0;
-  }
-
-  li:nth-last-child(1) {
-    border-bottom: none;
+    padding: 5vw 0;
+    border-bottom: solid 0.5vw;
+    border-color: var(--light-grey);
   }
 
   &.dropdown.closed {
     visibility: hidden;
-    transform: translateY(-50vw);
-    transition: cubic-bezier(0.32, 0.885, 0.175, 1.275) 0.5s;
+    transform: translateY(-70vw);
+    transition: var(--transition);
   }
 
   &.dropdown.open {
     transform: translateY(14vw);
-    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+    transition: var(--transition);
   }
 
   &.dropdown.hidden {
@@ -137,6 +135,41 @@ const StyledDropdown = styled.div`
     visibility: visible;
     transform: translateY(14vw);
   }
+`;
+
+const StyledPortfolioLinks = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5vw 0;
+  
+  .linkContainer {
+    padding: 0 4vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 54vw;
+  }
+
+  img {
+    max-width: 12vw;
+    margin: 0 3vw;
+  }
+
+  span {
+    background-color: var(--cerulean-blue);
+    width: 50%;
+    height: 1vw;
+  }
+
+  span:nth-child(1) {
+    border-radius: 0 10vw 10vw 0;
+  }
+
+  span:nth-child(3) {
+    border-radius: 10vw 0 0 10vw;
+  }
+
 `;
 
 function Navbar() {
@@ -161,8 +194,8 @@ function Navbar() {
     //dropdown state can be controlled by clicking on MenuIcon
     function MenuIcon() {
       return <StyledMenuIcon className="menuIcon" onClick={updateMenu}>
-        <div className={lineClass}></div>
-        <div className={lineClass}></div>
+        <span className={lineClass}></span>
+        <span className={lineClass}></span>
       </StyledMenuIcon>
     };
 
@@ -202,6 +235,21 @@ function Navbar() {
       </StyledNavBar>
       <StyledDropdown className={updateDropdownClass()}>
         {NavLinks("mobileDropdownLinks")}
+        <StyledPortfolioLinks>
+            <span/>
+            <div className="linkContainer">
+              <a href={sidebarData.github.url} target="_blank" rel="external">
+                  <img src={sidebarData.github.ceruleanIcon} alt="Github Icon"/>
+              </a>
+              <a href={sidebarData.linkedin.url} target="_blank" rel="external">
+                  <img src={sidebarData.linkedin.ceruleanIcon} alt="LinkedIn Icon"/>
+              </a>
+              <a href={sidebarData.resume.url} target="_blank" rel="external">
+                  <img src={sidebarData.resume.ceruleanIcon} alt="Resume Icon"/>
+              </a>
+            </div>
+            <span/>
+        </StyledPortfolioLinks>
       </StyledDropdown>
     </>
 };

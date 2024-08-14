@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { StyleSheetManager } from 'styled-components';
+import rootShouldForwardProp from '@mui/material/styles/rootShouldForwardProp';
 
 /**Came with create-react-app - need to look into this later **/
 const root = ReactDOM.createRoot(
@@ -9,7 +11,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <StyleSheetManager shouldForwardProp={rootShouldForwardProp}>
+      <App />
+    </StyleSheetManager>
   </React.StrictMode>
 );
 

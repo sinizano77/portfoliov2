@@ -1,4 +1,11 @@
-import heroPic from '../images/hero_pic.png';
+import heroPic from '../assets/images/hero_pic.png';
+
+import ghIconWhite from '../assets/icons/github_icon_white.png';
+import ghIconCerulean from '../assets/icons/github_icon_cerulean.png';
+import linkedInWhite from '../assets/icons/linkedin_icon_white.png';
+import linkedInCerulean from '../assets/icons/linkedin_icon_cerulean.png';
+import resumeIconWhite from '../assets/icons/resume_icon_white.png';
+import resumeIconCerulean from '../assets/icons/resume_icon_cerulean.png';
 
 export const heroData = {
     image: heroPic,
@@ -15,3 +22,21 @@ export const navData = [
   { name: 'Projects', link: '/#projects' },
   { name: 'Contact', link: '/#contact' }
 ];
+
+export const sidebarData = {
+  github: { 
+    whiteIcon: ghIconWhite, 
+    ceruleanIcon: ghIconCerulean,
+    url: "https://github.com/sinizano77",
+  },
+  linkedin: {
+    whiteIcon: linkedInWhite, 
+    ceruleanIcon: linkedInCerulean,
+    url: "https://www.linkedin.com/in/michael-orlanes/",
+  },
+  resume: {
+    whiteIcon: resumeIconWhite, 
+    ceruleanIcon: resumeIconCerulean,
+    url: "/docs/Michael Orlanes Developer Resume 2024.pdf",
+  },
+};
