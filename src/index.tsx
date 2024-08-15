@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import 'normalize.css';
+import "normalize.css";
 
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { StyleSheetManager } from 'styled-components';
-import rootShouldForwardProp from '@mui/material/styles/rootShouldForwardProp';
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { StyleSheetManager } from "styled-components";
+import rootShouldForwardProp from "@mui/material/styles/rootShouldForwardProp";
 
 /**Came with create-react-app - need to look into this later **/
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>

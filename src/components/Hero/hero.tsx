@@ -1,5 +1,5 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import * as React from "react";
+import styled from "styled-components";
 import { heroData } from "../../db/mainDb";
 import { bubbleData } from "./bubbleHeroData";
 import Bubble from "../bubble";
@@ -46,7 +46,7 @@ const StyledHero = styled.section`
   }
 
   .heroText {
-    font-family: 'Orkney';
+    font-family: "Orkney";
     font-size: 1.9vw;
     position: relative;
     text-wrap: wrap;
@@ -62,7 +62,7 @@ const StyledHero = styled.section`
 
   .typedText {
     position: relative;
-    font-family: 'JetBrainsMono';
+    font-family: "JetBrainsMono";
     font-size: 5vw;
 
     @media (${theme.breakpoints.xs}) {
@@ -75,7 +75,7 @@ const StyledHero = styled.section`
       max-height: 13vw;
     }
   }
-  
+
   .bubbleContainer {
     display: flex;
     position: relative;
@@ -83,7 +83,7 @@ const StyledHero = styled.section`
     align-items: flex-start;
     min-width: 45vw;
   }
-  `;
+`;
 
 function createBubble(bubble: any) {
   const margins = bubble.margins;
@@ -91,30 +91,36 @@ function createBubble(bubble: any) {
   const borderColor = bubble.borderColor;
   const sizes = bubble.sizes;
   const colorFill = bubble.colorFill;
-  const imageFill = bubble.imageFill
-  return (Bubble(margins, borderWidths, borderColor, sizes, colorFill, imageFill))
+  const imageFill = bubble.imageFill;
+  return Bubble(
+    margins,
+    borderWidths,
+    borderColor,
+    sizes,
+    colorFill,
+    imageFill
+  );
 }
 
 function Hero() {
-
   return (
     <StyledHero>
-      <div className='textContainer'>
-          <div className='typedText'>
-            <p>Hello {heroData.typedText[0]}</p>
-          </div>
-          <div className='heroText'>
-            <p>{heroData.about1}</p>
-            <p>{heroData.about2}</p>
-          </div>
+      <div className="textContainer">
+        <div className="typedText">
+          <p>Hello {heroData.typedText[0]}</p>
+        </div>
+        <div className="heroText">
+          <p>{heroData.about1}</p>
+          <p>{heroData.about2}</p>
+        </div>
       </div>
-      <div className='bubbleContainer'>
+      <div className="bubbleContainer">
         {createBubble(bubbleData.bubble1)}
         {createBubble(bubbleData.bubble2)}
         {createBubble(bubbleData.bubble3)}
       </div>
     </StyledHero>
   );
-};
+}
 
 export default Hero;

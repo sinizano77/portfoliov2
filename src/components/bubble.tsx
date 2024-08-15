@@ -1,14 +1,14 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import * as React from "react";
+import styled from "styled-components";
 import { theme } from "../global/theme";
 
 interface BubbleProps {
-    margins: any;
-    borderwidths: any;
-    bordercolor: string;
-    sizes: any;
-    colorfill?: string;
-    imgfill?: string;
+  margins: any;
+  borderwidths: any;
+  bordercolor: string;
+  sizes: any;
+  colorfill?: string;
+  imgfill?: string;
 }
 
 const StyledBubble = styled.div<BubbleProps>`
@@ -38,19 +38,22 @@ const StyledBubble = styled.div<BubbleProps>`
 
 function Bubble(
   margins: any,
-  borderWidths: any, 
-  borderColor: string, 
-  sizes: any, 
-  colorFill: string = "none", 
-  imageFill: string = "none") {
-    return <StyledBubble 
+  borderWidths: any,
+  borderColor: string,
+  sizes: any,
+  colorFill: string = "none",
+  imageFill: string = "none"
+) {
+  return (
+    <StyledBubble
       margins={margins}
-      borderwidths={borderWidths} 
-      bordercolor={borderColor} 
+      borderwidths={borderWidths}
+      bordercolor={borderColor}
       sizes={sizes}
       colorfill={colorFill}
-      imgfill={imageFill}>
-      </StyledBubble>
+      imgfill={imageFill}
+    ></StyledBubble>
+  );
 }
 
-export default Bubble
+export default Bubble;
