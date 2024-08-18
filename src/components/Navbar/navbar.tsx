@@ -37,10 +37,25 @@ const StyledNavBar = styled.nav`
     height: 0.2vw;
     bottom: -0.3vw;
     left: 0;
-    background-color: var(--orange);
     transform-origin: 50%;
     transition: transform 0.25s ease-out;
     border-radius: 20vw;
+  }
+
+  li:nth-child(n + 1) a::after {
+    background-color: var(--orange);
+  }
+
+  li:nth-child(n + 2) a::after {
+    background-color: var(--crimson-red);
+  }
+
+  li:nth-child(n + 3) a::after {
+    background-color: var(--lime-green);
+  }
+
+  li:nth-child(n + 4) a::after {
+    background-color: var(--cerulean-blue);
   }
 
   a:hover::after {
@@ -112,6 +127,7 @@ const StyledDropdown = styled.div`
   font-size: 5vw;
   background-color: white;
   overflow: hidden;
+  padding-top: 15vw;
 
   a:link,
   a:visited,
@@ -143,12 +159,12 @@ const StyledDropdown = styled.div`
 
   &.dropdown.closed {
     visibility: hidden;
-    transform: translateY(-70vw);
+    transform: translateY(-90vw);
     transition: var(--transition);
   }
 
   &.dropdown.open {
-    transform: translateY(14vw);
+    transform: translateY(0vw);
     transition: var(--transition);
   }
 
@@ -158,7 +174,7 @@ const StyledDropdown = styled.div`
 
   &.dropdown.visible {
     visibility: visible;
-    transform: translateY(14vw);
+    transform: translateY(0vw);
   }
 `;
 
