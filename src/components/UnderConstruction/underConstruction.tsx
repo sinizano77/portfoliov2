@@ -7,13 +7,13 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 interface GearProps {
   margin: string;
   size: string;
-  rotationDirection: string;
+  rotationdirection: string;
 }
 
 const StyledGear = styled.img<GearProps>`
   max-width: ${(props) => props.size};
   margin: ${(props) => props.margin};
-  animation: spin 5s linear 0s infinite ${(props) => props.rotationDirection};
+  animation: spin 5s linear 0s infinite ${(props) => props.rotationdirection};
 
   @keyframes spin {
     100% {
@@ -39,7 +39,7 @@ const StyledUnderConstruction = styled.section`
       font-size: 7vw;
     }
 
-    @media (${theme.breakpoints.md}) {
+    @media (${theme.breakpoints.sm}) {
       font-size: 3vw;
     }
   }
@@ -53,7 +53,7 @@ const StyledUnderConstruction = styled.section`
       font-size: 4.5vw;
     }
 
-    @media (${theme.breakpoints.md}) {
+    @media (${theme.breakpoints.sm}) {
       font-size: 1.75vw;
     }
   }
@@ -66,7 +66,7 @@ const StyledUnderConstruction = styled.section`
 `;
 
 function UnderConstruction() {
-  const isMobile = useMediaQuery(`(${theme.breakpoints.md})`);
+  const isMobile = useMediaQuery(`(${theme.breakpoints.sm})`);
 
   return (
     <StyledUnderConstruction>
@@ -75,14 +75,14 @@ function UnderConstruction() {
         <StyledGear
           size={isMobile ? "5vw" : "20vw"}
           margin="auto"
-          rotationDirection="normal"
+          rotationdirection="normal"
           src={constructionData.gearIcon}
           alt="spinning gear icon"
         />
         <StyledGear
           size={isMobile ? "3vw" : "12vw"}
           margin={isMobile ? "0 0 2.5vw -1vw" : "0 0 10vw -4vw"}
-          rotationDirection="reverse"
+          rotationdirection="reverse"
           src={constructionData.gearIcon}
           alt="spinning gear icon"
         />

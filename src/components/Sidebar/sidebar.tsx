@@ -41,7 +41,7 @@ const StyledSidebar = styled.aside`
     visibility: hidden;
   }
 
-  @media (${theme.breakpoints.md}) {
+  @media (${theme.breakpoints.sm}) {
     visibility: visible;
   }
 `;

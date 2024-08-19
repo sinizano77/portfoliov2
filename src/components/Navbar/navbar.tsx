@@ -8,6 +8,7 @@ import { sidebarData } from "../../db/mainDb";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 //Dropdown logic needs heavy refactoring
+//Should use useEffect + componentDismount instead of CSS visibility alternaives
 const StyledNavBar = styled.nav`
   display: flex;
   position: fixed;
@@ -73,7 +74,7 @@ const StyledNavBar = styled.nav`
     justify-content: flex-end;
   }
 
-  @media (${theme.breakpoints.md}) {
+  @media (${theme.breakpoints.sm}) {
     height: 2vw;
     justify-content: center;
   }
@@ -98,12 +99,12 @@ const StyledMenuIcon = styled.div`
     border-radius: 3vw / 3vw;
   }
 
-  .lines.clicked:nth-child(1) {
+  .lines.clicked:nth-child(n + 1) {
     transform: translate(0, 2vw) rotate(-45deg);
     transition: var(--transition);
   }
 
-  .lines.clicked:nth-child(2) {
+  .lines.clicked:nth-child(n + 2) {
     transform: translate(0, -2vw) rotate(45deg);
     transition: var(--transition);
   }
@@ -213,7 +214,7 @@ const StyledPortfolioLinks = styled.div`
 `;
 
 function Navbar() {
-  const isMobile = useMediaQuery(`(${theme.breakpoints.md})`);
+  const isMobile = useMediaQuery(`(${theme.breakpoints.sm})`);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [lineClass, setLineClass] = useState("lines unclicked");
   const [dropdownClass, setDropdownClass] = useState(`dropdown closed`);
