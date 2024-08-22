@@ -219,8 +219,8 @@ function Navbar() {
   function NavLinks(linkClass: string) {
     return (
       <menu className={linkClass}>
-        {navData.map((navItem) => (
-          <li className={`${navItem.name}Link`}>
+        {navData.map((navItem, i) => (
+          <li className={`${navItem.name}Link`} key={i}>
             <a href={navItem.link} rel="noreferrer">{navItem.name}</a>
           </li>
         ))}

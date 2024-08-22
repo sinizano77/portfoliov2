@@ -223,7 +223,9 @@ function About() {
               <h3>{skillData.frontend.title}</h3>
               <ul className="frontendSkillList">
                 {skillData.frontend.skills.map((currSkill, i) => (
-                  <li className={`skillItem${i}`}>{currSkill}</li>
+                  <li className={`skillItem${i}`} key={i}>
+                    {currSkill}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -231,7 +233,9 @@ function About() {
               <h3>{skillData.backend.title}</h3>
               <ul className="backendSkillList">
                 {skillData.backend.skills.map((currSkill, i) => (
-                  <li className={`skillItem${i}`}>{currSkill}</li>
+                  <li className={`skillItem${i}`} key={i}>
+                    {currSkill}
+                  </li>
                 ))}
               </ul>
             </div>

@@ -12,16 +12,14 @@ import { GlobalStyle } from "./global/GlobalStyle";
 function App() {
   return (
     <>
-      <StyleSheetManager enableVendorPrefixes>
-        <GlobalStyle />
-        <BrowserRouter>
-          <Navbar />
-          <Sidebar />
-          <Hero />
-          <About />
-          <UnderConstruction />
-        </BrowserRouter>
-      </StyleSheetManager>
+      <GlobalStyle />
+      <BrowserRouter>
+        <Navbar />
+        <Sidebar />
+        <Hero />
+        <About />
+        <UnderConstruction />
+      </BrowserRouter>
     </>
   );
 }

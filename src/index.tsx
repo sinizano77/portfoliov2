@@ -14,7 +14,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <StyleSheetManager shouldForwardProp={rootShouldForwardProp}>
+    <StyleSheetManager
+      shouldForwardProp={rootShouldForwardProp}
+      enableVendorPrefixes
+    >
       <App />
     </StyleSheetManager>
   </React.StrictMode>
