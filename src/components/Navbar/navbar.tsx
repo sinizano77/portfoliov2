@@ -2,7 +2,6 @@ import { useState } from "react";
 import * as React from "react";
 import styled from "styled-components";
 import { navData } from "../../db/mainDb";
-import { NavLink } from "react-router-dom";
 import { theme } from "../../global/theme";
 import { sidebarData } from "../../db/mainDb";
 import useMediaQuery from "../../hooks/useMediaQuery";
@@ -13,7 +12,7 @@ const StyledNavBar = styled.nav`
   display: flex;
   position: fixed;
   width: 100%;
-  z-index: 3;
+  z-index: 4;
   align-items: center;
   padding: 1.25vw 0;
   background-color: white;
@@ -119,11 +118,9 @@ const StyledDropdown = styled.div`
   position: fixed;
   flex-direction: column;
   justify-content: center;
-  z-index: 1;
+  z-index: 3;
   min-width: 100%;
   min-height: 60vw;
-  font-family: "Orkney";
-  font-size: 5vw;
   background-color: white;
   overflow: hidden;
   padding-top: 15vw;
@@ -151,6 +148,7 @@ const StyledDropdown = styled.div`
     display: flex;
     justify-content: center;
     list-style-type: none;
+    font-size: 5vw;
     padding: 5vw 0;
     border-bottom: solid 0.5vw;
     border-color: var(--light-grey);
@@ -222,7 +220,9 @@ function Navbar() {
     return (
       <menu className={linkClass}>
         {navData.map((navItem) => (
-          <li className={`${navItem.name}Link`}><NavLink to="/">{navItem.name}</NavLink></li>
+          <li className={`${navItem.name}Link`}>
+            <a href={navItem.link}>{navItem.name}</a>
+          </li>
         ))}
       </menu>
     );

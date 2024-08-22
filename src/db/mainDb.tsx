@@ -23,10 +23,10 @@ export const heroData = {
 };
 
 export const navData = [
-  { name: "About", link: "/#about" },
-  { name: "Experience", link: "/#experience" },
-  { name: "Projects", link: "/#projects" },
-  { name: "Contact", link: "/#contact" },
+  { name: "About", link: "#about" },
+  { name: "Experience", link: "#experience" },
+  { name: "Projects", link: "#projects" },
+  { name: "Contact", link: "#contact" },
 ];
 
 export const sidebarData = {

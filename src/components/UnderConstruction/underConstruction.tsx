@@ -24,14 +24,21 @@ const StyledGear = styled.img<GearProps>`
 
 const StyledUnderConstruction = styled.section`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: relative;
   width: 100%;
   background-color: #909090;
   color: white;
-  padding: 5vw 0 6vw 0;
+  padding: 3.5vw 0;
+
+  .contentContainer {
+    display: inherit;
+    position: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10vw;
+    text-align: center;
+  }
 
   h2 {
     font-family: "JetBrainsMono";
@@ -44,16 +51,13 @@ const StyledUnderConstruction = styled.section`
     }
   }
 
-  p {
-    font-family: "Orkney";
-    padding: 0 10vw;
-    text-align: center;
-
+  .constructionText {
     @media (${theme.breakpoints.xs}) {
       font-size: 4.5vw;
     }
 
     @media (${theme.breakpoints.sm}) {
+      font-family: "Orkney";
       font-size: 1.75vw;
     }
   }
@@ -70,30 +74,33 @@ function UnderConstruction() {
 
   return (
     <StyledUnderConstruction>
-      <h2>{constructionData.title}</h2>
-      <div>
-        <StyledGear
-          size={isMobile ? "5vw" : "20vw"}
-          margin="auto"
-          rotationdirection="normal"
-          src={constructionData.gearIcon}
-          alt="spinning gear icon"
-        />
-        <StyledGear
-          size={isMobile ? "3vw" : "12vw"}
-          margin={isMobile ? "0 0 2.5vw -1vw" : "0 0 10vw -4vw"}
-          rotationdirection="reverse"
-          src={constructionData.gearIcon}
-          alt="spinning gear icon"
-        />
+      <div className="contentContainer">
+        <h2>{constructionData.title}</h2>
+        <div>
+          <StyledGear
+            size={isMobile ? "5vw" : "20vw"}
+            margin="auto"
+            rotationdirection="normal"
+            src={constructionData.gearIcon}
+            alt="spinning gear icon"
+          />
+          <StyledGear
+            size={isMobile ? "3vw" : "12vw"}
+            margin={isMobile ? "0 0 2.5vw -1vw" : "0 0 10vw -4vw"}
+            rotationdirection="reverse"
+            src={constructionData.gearIcon}
+            alt="spinning gear icon"
+          />
+        </div>
+        <p className="constructionText">
+          {constructionData.text}
+          <a href={constructionData.figma} target="_blank" rel="external">
+            Figma
+          </a>
+          !
+        </p>
+        <p>{constructionData.footnote}</p>
       </div>
-      <p>
-        {constructionData.text}
-        <a href={constructionData.figma} target="_blank" rel="external">
-          Figma
-        </a>
-        !
-      </p>
     </StyledUnderConstruction>
   );
 }

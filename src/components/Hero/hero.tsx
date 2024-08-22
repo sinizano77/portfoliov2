@@ -17,7 +17,7 @@ const StyledHero = styled.section`
     justify-content: center;
     align-items: center;
     row-gap: 5vw;
-    padding: 15vw 10vw 10vw;
+    padding: 15vw 10vw 40vw;
   }
 
   @media (${theme.breakpoints.sm}) {

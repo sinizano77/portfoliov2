@@ -3,16 +3,16 @@ import { aboutData } from "../../db/mainDb";
 export const bubbleData = {
   bubble1: {
     margins: {
-      xs: "auto auto auto auto",
+      xs: "auto auto -30vw -8vw",
       sm: "auto auto -23vw 8vw",
     },
     borderWidths: {
-      xs: "2vw",
+      xs: "3vw",
       sm: "1.1vw",
     },
     borderColor: "var(--cerulean-blue)",
     sizes: {
-      xs: "30vw",
+      xs: "40vw",
       sm: "17vw",
     },
     colorFill: "none",
@@ -21,11 +21,11 @@ export const bubbleData = {
 
   bubble2: {
     margins: {
-      xs: "auto auto auto auto",
+      xs: "10vw -20vw auto auto",
       sm: "auto 3.5vw auto auto",
     },
     borderWidths: {
-      xs: "2vw",
+      xs: "2.5vw",
       sm: "1vw",
     },
     borderColor: "var(--lime-green)",
@@ -39,11 +39,11 @@ export const bubbleData = {
 
   bubble3: {
     margins: {
-      xs: "auto auto auto auto",
+      xs: "-13vw 12vw auto auto",
       sm: "1.5vw 10vw auto auto",
     },
     borderWidths: {
-      xs: "2vw",
+      xs: "2.5vw",
       sm: "0.9vw",
     },
     borderColor: "var(--yellow)",

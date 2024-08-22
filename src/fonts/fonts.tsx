@@ -1,7 +1,9 @@
 /**import OrkneyBold from './Orkney/orkney-bold.woff';
 import OrkneyMedium from './Orkney/orkney-medium.woff';**/
 import OrkneyRegular from "./Orkney/orkney-regular.woff";
-import OrkneyLight from './Orkney/orkney-light.woff';
+import OrkneyLight from "./Orkney/orkney-light.woff";
+
+import CelloSansLight from "./CelloSans/hinted-CelloSans-Light.woff";
 
 /**import JetBrainsMonoBold from './JetBrainsMono/JetBrainsMono-Bold.woff';
 import JetBrainsMonoBoldItalic from './JetBrainsMono/JetBrainsMono-BoldItalic.woff';
@@ -20,13 +22,20 @@ export const fonts = `
     @font-face {
         font-family: 'Orkney';
         src: url(${OrkneyRegular}) format('woff');
-        font-weight: 300;
+        font-weight: 100;
         font-style: normal;
     }
 
     @font-face {
         font-family: 'OrkneyLight';
         src: url(${OrkneyLight}) format('woff');
+        font-weight: 100;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'CelloSansLight';
+        src: url(${CelloSansLight}) format('woff');
         font-weight: 100;
         font-style: normal;
     }

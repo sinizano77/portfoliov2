@@ -1,24 +1,40 @@
 import * as React from "react";
 import styled from "styled-components";
+import { theme } from "../../global/theme";
 import Blade from "../blade";
 import { createBubble } from "../bubble";
 import { bubbleData } from "./bubbleAboutData";
 import { aboutData, skillData } from "../../db/mainDb";
 
-
 //todo: modify steve1.png to use useEffect rather than @media to avoid animation rerendering on resize
 const StyledAbout = styled.section`
   position: relative;
-  margin-top: -15vw;
+
+  @media (${theme.breakpoints.xs}) {
+    margin-top: -30vw;
+  }
+
+  @media (${theme.breakpoints.sm}) {
+    margin-top: -15vw;
+  }
 
   .steve {
     position: inherit;
-    width: 20vw;
-    bottom: 1.75vw;
-    left: 10vw;
     rotate: -5deg;
     transform: translateY(0);
     transition: var(--transition);
+
+    @media (${theme.breakpoints.xs}) {
+      width: 50vw;
+      left: 33vw;
+      bottom: -2vw;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      width: 20vw;
+      left: 10vw;
+      bottom: 1.75vw;
+    }
   }
 
   .steve:hover {
@@ -40,7 +56,14 @@ const StyledAbout = styled.section`
     width: 100%;
     padding-top: 4vw;
     padding-bottom: 2vw;
-    right: 1vw;
+
+    @media (${theme.breakpoints.xs}) {
+      flex-direction: column-reverse;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      flex-direction: row;
+    }
   }
 
   .bubbleAboutContainer {
@@ -56,30 +79,60 @@ const StyledAbout = styled.section`
     position: relative;
     flex-direction: column;
     align-items: center;
-    width: 40%;
     color: white;
     bottom: 5vw;
     z-index: 2;
+
+    @media (${theme.breakpoints.xs}) {
+      width: 70%;
+      text-align: center;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      width: 40%;
+      text-align: left;
+    }
   }
 
   .skillsContainer {
     display: inherit;
-    flex-direction: row;
     justify-content: center;
-    padding: 0 9vw;
+
+    @media (${theme.breakpoints.xs}) {
+      flex-direction: column;
+      padding: 0 11vw;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      flex-direction: row;
+      padding: 0 9vw;
+    }
   }
 
   .frontendSkills,
   .backendSkills {
-    position: relative;
-    color: white;
     display: inherit;
     flex-direction: column;
-    max-width: 50%;
+    position: relative;
+    color: white;
+    align-items: flex-start;
+
+    @media (${theme.breakpoints.xs}) {
+      max-width: 100%;
+    }
+    @media (${theme.breakpoints.sm}) {
+      max-width: 50%;
+    }
   }
 
   .backendSkills {
-    left: 4vw;
+    @media (${theme.breakpoints.xs}) {
+      left: none;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      left: 4vw;
+    }
   }
 
   .frontendSkillList,
@@ -90,19 +143,27 @@ const StyledAbout = styled.section`
     list-style-type: none;
     color: var(--dark-grey);
     padding: 0;
+    justify-content: flex-start;
+    margin-top: 0vw;
   }
 
   li {
-    font-size: 1.3vw;
-    border-radius: 0.5vw;
-    background-color: #d9d9d9;
-    margin: 0.5vw;
-    padding: 1vw;
-    max-height: 1.5vw;
+    background-color: #f7f7f7;
+
+    @media (${theme.breakpoints.xs}) {
+      margin: 1.5vw;
+      padding: 2vw 3vw;
+      border-radius: 1vw;
+    }
+    @media (${theme.breakpoints.sm}) {
+      margin: 0.5vw;
+      padding: 0.75vw 1.5vw;
+      border-radius: 0.5vw;
+    }
   }
 
   .pikminContainer {
-    displaY: inherit;
+    display: inherit;
     position: relative;
     justify-content: flex-end;
     rotate: -5deg;
@@ -114,7 +175,13 @@ const StyledAbout = styled.section`
   .pikminPython,
   .pikminJs,
   .pikminReact {
-    max-height: 6vw;
+    @media (${theme.breakpoints.xs}) {
+      max-height: 11vw;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      max-height: 6vw;
+    }
   }
 
   .tempWhite {
@@ -130,7 +197,7 @@ const StyledAbout = styled.section`
 
 function About() {
   return (
-    <StyledAbout>
+    <StyledAbout id="about">
       <img
         className="steve"
         src={aboutData.images.steve1}
@@ -188,7 +255,7 @@ function About() {
           </div>
         </div>
       </Blade>
-      <div className="tempWhite"/>
+      <div className="tempWhite" />
     </StyledAbout>
   );
   //todo: find alt solution for tempWhite div to cover up bleeding Blade
