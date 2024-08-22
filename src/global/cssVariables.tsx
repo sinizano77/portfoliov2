@@ -12,7 +12,8 @@ export const variables = css`
     --light-grey: #a7a7a7;
 
     --gradient: linear-gradient(180deg, white, #d9d9d9);
-
+    --shadow-bottom: 0 1vw 1vw -0.5vw rgba(0, 0, 0, 0.05);
+    --shadow-top: 0 -1vw 1vw -0.5vw rgba(0, 0, 0, 0.1);
     --transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
   }
 `;

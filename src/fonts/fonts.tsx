@@ -1,7 +1,7 @@
 /**import OrkneyBold from './Orkney/orkney-bold.woff';
-import OrkneyLight from './Orkney/orkney-light.woff';
 import OrkneyMedium from './Orkney/orkney-medium.woff';**/
 import OrkneyRegular from "./Orkney/orkney-regular.woff";
+import OrkneyLight from './Orkney/orkney-light.woff';
 
 /**import JetBrainsMonoBold from './JetBrainsMono/JetBrainsMono-Bold.woff';
 import JetBrainsMonoBoldItalic from './JetBrainsMono/JetBrainsMono-BoldItalic.woff';
@@ -23,7 +23,15 @@ export const fonts = `
         font-weight: 300;
         font-style: normal;
     }
-        @font-face {
+
+    @font-face {
+        font-family: 'OrkneyLight';
+        src: url(${OrkneyLight}) format('woff');
+        font-weight: 100;
+        font-style: normal;
+    }
+
+    @font-face {
         font-family: 'JetBrainsMono';
         src: url(${JetBrainsMonoRegular}) format('woff');
         font-weight: 300;

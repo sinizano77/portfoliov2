@@ -8,7 +8,7 @@ const StyledSidebar = styled.aside`
   position: fixed;
   flex-direction: column;
   background-color: var(--cerulean-blue);
-  z-index: 1;
+  z-index: 2;
   top: 10vw;
   border-radius: 0 0.5vw 0.5vw 0;
 

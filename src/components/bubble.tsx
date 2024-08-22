@@ -20,6 +20,7 @@ const StyledBubble = styled.div<BubbleProps>`
   background-image: url(${(props) => props.imgfill});
   background-position: center;
   background-size: cover;
+  z-index: 2;
 
   @media (${theme.breakpoints.xs}) {
     margin: ${(props) => props.margins.xs};
@@ -35,6 +36,23 @@ const StyledBubble = styled.div<BubbleProps>`
     border-width: ${(props) => props.borderwidths.sm};
   }
 `;
+
+export function createBubble(bubble: any) {
+  const margins = bubble.margins;
+  const borderWidths = bubble.borderWidths;
+  const borderColor = bubble.borderColor;
+  const sizes = bubble.sizes;
+  const colorFill = bubble.colorFill;
+  const imageFill = bubble.imageFill;
+  return Bubble(
+    margins,
+    borderWidths,
+    borderColor,
+    sizes,
+    colorFill,
+    imageFill
+  );
+}
 
 function Bubble(
   margins: any,

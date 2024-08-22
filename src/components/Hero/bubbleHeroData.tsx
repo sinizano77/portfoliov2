@@ -40,7 +40,7 @@ export const bubbleData = {
   bubble3: {
     margins: {
       xs: "10vw auto auto -42vw",
-      sm: "auto auto auto 16vw",
+      sm: "4vw auto auto 16vw",
     },
     borderWidths: {
       xs: "3.5vw",
@@ -49,7 +49,7 @@ export const bubbleData = {
     borderColor: "var(--orange)",
     sizes: {
       xs: "60vw",
-      sm: "23vw",
+      sm: "22vw",
     },
     colorFill: "none",
     imageFill: heroData.image,

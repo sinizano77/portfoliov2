@@ -13,13 +13,11 @@ const StyledNavBar = styled.nav`
   display: flex;
   position: fixed;
   width: 100%;
-  z-index: 2;
-  font-family: "Orkney";
-  font-size: 1.5vw;
+  z-index: 3;
   align-items: center;
-  padding: 1.25vw 0 1.25vw 0;
+  padding: 1.25vw 0;
   background-color: white;
-  box-shadow: 0 5px 0.75vw 0 rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-bottom);
 
   a:link,
   a:visited,
@@ -223,10 +221,8 @@ function Navbar() {
   function NavLinks(linkClass: string) {
     return (
       <menu className={linkClass}>
-        {navData.map((navData, i) => (
-          <li key={i}>
-            <NavLink to="/">{navData.name}</NavLink>
-          </li>
+        {navData.map((navItem) => (
+          <li className={`${navItem.name}Link`}><NavLink to="/">{navItem.name}</NavLink></li>
         ))}
       </menu>
     );
