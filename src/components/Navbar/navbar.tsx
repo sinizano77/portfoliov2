@@ -221,7 +221,7 @@ function Navbar() {
       <menu className={linkClass}>
         {navData.map((navItem) => (
           <li className={`${navItem.name}Link`}>
-            <a href={navItem.link}>{navItem.name}</a>
+            <a href={navItem.link} rel="noreferrer">{navItem.name}</a>
           </li>
         ))}
       </menu>
@@ -276,16 +276,16 @@ function Navbar() {
         <StyledPortfolioLinks>
           <span />
           <div className="linkContainer">
-            <a href={sidebarData.github.url} target="_blank" rel="external">
+            <a href={sidebarData.github.url} target="_blank" rel="external noreferrer">
               <img src={sidebarData.github.ceruleanIcon} alt="Github Icon" />
             </a>
-            <a href={sidebarData.linkedin.url} target="_blank" rel="external">
+            <a href={sidebarData.linkedin.url} target="_blank" rel="external noreferrer">
               <img
                 src={sidebarData.linkedin.ceruleanIcon}
                 alt="LinkedIn Icon"
               />
             </a>
-            <a href={sidebarData.resume.url} target="_blank" rel="external">
+            <a href={sidebarData.resume.url} target="_blank" rel="external noreferrer">
               <img src={sidebarData.resume.ceruleanIcon} alt="Resume Icon" />
             </a>
           </div>

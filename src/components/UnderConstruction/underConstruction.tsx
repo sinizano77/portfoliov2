@@ -94,7 +94,7 @@ function UnderConstruction() {
         </div>
         <p className="constructionText">
           {constructionData.text}
-          <a href={constructionData.figma} target="_blank" rel="external">
+          <a href={constructionData.figma} target="_blank" rel="external noreferrer">
             Figma
           </a>
           !
