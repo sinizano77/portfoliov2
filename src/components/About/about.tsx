@@ -42,13 +42,13 @@ const StyledAbout = styled.section`
     transition: var(--transition);
   }
 
-  .sectionContainer {
+  .section-container {
     display: flex;
     flex-direction: column;
     max-width: 100%;
   }
 
-  .aboutContainer {
+  .about-container {
     display: inherit;
     position: relative;
     justify-content: center;
@@ -66,7 +66,7 @@ const StyledAbout = styled.section`
     }
   }
 
-  .bubbleAboutContainer {
+  .bubble-about-container {
     display: inherit;
     position: relative;
     flex-direction: column;
@@ -74,7 +74,7 @@ const StyledAbout = styled.section`
     width: 50%;
   }
 
-  .textContainer {
+  .about-text-container {
     display: inherit;
     position: relative;
     flex-direction: column;
@@ -94,7 +94,7 @@ const StyledAbout = styled.section`
     }
   }
 
-  .skillsContainer {
+  .skills-container {
     display: inherit;
     justify-content: center;
 
@@ -109,8 +109,8 @@ const StyledAbout = styled.section`
     }
   }
 
-  .frontendSkills,
-  .backendSkills {
+  .frontend-skills,
+  .backend-skills {
     display: inherit;
     flex-direction: column;
     position: relative;
@@ -125,7 +125,7 @@ const StyledAbout = styled.section`
     }
   }
 
-  .backendSkills {
+  .backend-skills {
     @media (${theme.breakpoints.xs}) {
       left: none;
     }
@@ -135,8 +135,8 @@ const StyledAbout = styled.section`
     }
   }
 
-  .frontendSkillList,
-  .backendSkillList {
+  .frontend-skill-list,
+  .backend-skill-list {
     display: inherit;
     flex-direction: row;
     flex-wrap: wrap;
@@ -147,7 +147,7 @@ const StyledAbout = styled.section`
     margin-top: 0vw;
   }
 
-  li {
+  .skill-item {
     background-color: #f7f7f7;
 
     @media (${theme.breakpoints.xs}) {
@@ -162,7 +162,7 @@ const StyledAbout = styled.section`
     }
   }
 
-  .pikminContainer {
+  .pikmin-container {
     display: inherit;
     position: relative;
     justify-content: flex-end;
@@ -172,9 +172,9 @@ const StyledAbout = styled.section`
     bottom: -2vw;
   }
 
-  .pikminPython,
-  .pikminJs,
-  .pikminReact {
+  .pikmin-python,
+  .pikmin-js,
+  .pikmin-react {
     @media (${theme.breakpoints.xs}) {
       max-height: 11vw;
     }
@@ -184,7 +184,7 @@ const StyledAbout = styled.section`
     }
   }
 
-  .tempWhite {
+  .temp-white {
     position: relative;
     background-color: white;
     width: 100%;
@@ -204,65 +204,65 @@ function About() {
         alt="Yellow Pikmin poking its head out"
       />
       <Blade color="var(--orange)" angletop="-5deg" anglebottom="-5deg">
-        <div className="sectionContainer">
-          <div className="aboutContainer">
-            <div className="bubbleAboutContainer">
+        <div className="section-container">
+          <div className="about-container">
+            <div className="bubble-about-container">
               {createBubble(bubbleData.bubble1)}
               {createBubble(bubbleData.bubble2)}
               {createBubble(bubbleData.bubble3)}
             </div>
-            <div className="textContainer">
+            <div className="about-text-container">
               <h2>{aboutData.title}</h2>
               <p>{aboutData.text1}</p>
               <p>{aboutData.text2}</p>
             </div>
           </div>
 
-          <div className="skillsContainer">
-            <div className="frontendSkills">
+          <div className="skills-container">
+            <div className="frontend-skills">
               <h3>{skillData.frontend.title}</h3>
-              <ul className="frontendSkillList">
+              <ul className="frontend-skill-list">
                 {skillData.frontend.skills.map((currSkill, i) => (
-                  <li className={`skillItem${i}`} key={i}>
+                  <li className="skill-item" key={i}>
                     {currSkill}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="backendSkills">
+            <div className="backend-skills">
               <h3>{skillData.backend.title}</h3>
-              <ul className="backendSkillList">
+              <ul className="backend-skill-list">
                 {skillData.backend.skills.map((currSkill, i) => (
-                  <li className={`skillItem${i}`} key={i}>
+                  <li className="skill-item" key={i}>
                     {currSkill}
                   </li>
                 ))}
               </ul>
             </div>
           </div>
-          <div className="pikminContainer">
+          <div className="pikmin-container">
             <img
-              className="pikminPython"
+              className="pikmin-python"
               src={aboutData.pikmin.python}
               alt="pikmin carrying Python icon"
             />
             <img
-              className="pikminJs"
+              className="pikmin-js"
               src={aboutData.pikmin.js}
               alt="pikmin carrying JavaScript icon"
             />
             <img
-              className="pikminReact"
+              className="pikmin-react"
               src={aboutData.pikmin.react}
               alt="pikmin carrying React icon"
             />
           </div>
         </div>
       </Blade>
-      <div className="tempWhite" />
+      <div className="temp-white" />
     </StyledAbout>
   );
-  //todo: find alt solution for tempWhite div to cover up bleeding Blade
+  //todo: find alt solution for temp-white div to cover up bleeding Blade
 }
 
 export default About;

@@ -30,7 +30,7 @@ const StyledUnderConstruction = styled.section`
   color: white;
   padding: 3.5vw 0;
 
-  .contentContainer {
+  .construction-content-container {
     display: inherit;
     position: inherit;
     flex-direction: column;
@@ -51,7 +51,7 @@ const StyledUnderConstruction = styled.section`
     }
   }
 
-  .constructionText {
+  .construction-text {
     @media (${theme.breakpoints.xs}) {
       font-size: 4.5vw;
     }
@@ -74,7 +74,7 @@ function UnderConstruction() {
 
   return (
     <StyledUnderConstruction>
-      <div className="contentContainer">
+      <div className="construction-content-container">
         <h2>{constructionData.title}</h2>
         <div>
           <StyledGear
@@ -92,7 +92,7 @@ function UnderConstruction() {
             alt="spinning gear icon"
           />
         </div>
-        <p className="constructionText">
+        <p className="construction-text">
           {constructionData.text}
           <a href={constructionData.figma} target="_blank" rel="external noreferrer">
             Figma

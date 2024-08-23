@@ -27,7 +27,7 @@ const StyledHero = styled.section`
     padding: 5vw 0 10vw;
   }
 
-  .textContainer {
+  .hero-text-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,7 +45,7 @@ const StyledHero = styled.section`
     }
   }
 
-  .heroText {
+  .hero-text {
     position: relative;
     text-wrap: wrap;
 
@@ -62,12 +62,12 @@ const StyledHero = styled.section`
     }
   }
 
-  .typedText {
+  .typed-text {
     position: relative;
     top: 1vw;
   }
 
-  .bubbleHeroContainer {
+  .bubble-hero-container {
     display: flex;
     position: relative;
     flex-direction: row;
@@ -80,14 +80,14 @@ const StyledHero = styled.section`
 function Hero() {
   return (
     <StyledHero>
-      <div className="textContainer">
-        <h1 className="typedText">Hello {heroData.typedText[0]}</h1>
-        <div className="heroText">
+      <div className="hero-text-container">
+        <h1 className="typed-text">Hello {heroData.typedText[0]}</h1>
+        <div className="hero-text">
           <p>{heroData.about1}</p>
           <p>{heroData.about2}</p>
         </div>
       </div>
-      <div className="bubbleHeroContainer">
+      <div className="bubble-hero-container">
         {createBubble(bubbleData.bubble1)}
         {createBubble(bubbleData.bubble2)}
         {createBubble(bubbleData.bubble3)}

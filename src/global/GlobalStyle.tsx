@@ -38,13 +38,15 @@ export const GlobalStyle = createGlobalStyle`
     @media (${theme.breakpoints.xs}) {
       font-size: 8vw;
       text-underline-offset: 1vw;
-      text-decoration: underline solid white 0.5vw;
+      text-decoration: underline solid white;
+      text-decoration-thickness: 0.5vw;
     }
 
     @media (${theme.breakpoints.sm}) {
       font-size: 3.25vw;
       text-underline-offset: 0.6vw;
-      text-decoration: underline solid white 0.2vw;
+      text-decoration: underline solid white;
+      text-decoration-thickness: 0.2vw;
     }
   }
 
@@ -53,15 +55,17 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 100;
 
     @media (${theme.breakpoints.xs}) {
-      text-underline-offset: 1.5vw;
-      text-decoration: underline solid white 0.4vw;
       font-size: 5.5vw;
+      text-underline-offset: 1.5vw;
+      text-decoration: underline solid white;
+      text-decoration-thickness: 0.4vw;
     }
 
     @media (${theme.breakpoints.sm}) {
-      text-underline-offset: 0.6vw;
-      text-decoration: underline solid white 0.2vw;
       font-size: 2.25vw;
+      text-underline-offset: 0.6vw;
+      text-decoration: underline solid white;
+      text-decoration-thickness: 0.2vw;
     }
   }
 

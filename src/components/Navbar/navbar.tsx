@@ -61,7 +61,7 @@ const StyledNavBar = styled.nav`
     transform-origin: 50%;
   }
 
-  .desktopNavLinks {
+  .desktop-nav {
     display: inherit;
     list-style-type: none;
   }
@@ -97,12 +97,12 @@ const StyledMenuIcon = styled.div`
   }
 
   .lines.clicked:nth-child(n + 1) {
-    transform: translate(0, 2vw) rotate(-45deg);
+    transform: translateY(2vw) rotate(-45deg);
     transition: var(--transition);
   }
 
   .lines.clicked:nth-child(n + 2) {
-    transform: translate(0, -2vw) rotate(45deg);
+    transform: translateY(-2vw) rotate(45deg);
     transition: var(--transition);
   }
 
@@ -125,15 +125,15 @@ const StyledDropdown = styled.div`
   overflow: hidden;
   padding-top: 15vw;
 
-  a:link,
-  a:visited,
-  a:hover,
-  a:active {
+  .dropdown-link:link,
+  .dropdown-link:visited,
+  .dropdown-link:hover,
+  .dropdown-link:active {
     text-decoration: none !important;
     color: var(--dark-grey);
   }
 
-  .mobileDropdownLinks {
+  .mobile-dropdown {
     list-style-type: none;
     display: block;
     justify-content: center;
@@ -144,14 +144,19 @@ const StyledDropdown = styled.div`
     min-width: 85%;
   }
 
-  li {
-    display: flex;
-    justify-content: center;
+  .dropdown-item {
     list-style-type: none;
     font-size: 5vw;
     padding: 5vw 0;
     border-bottom: solid 0.5vw;
     border-color: var(--light-grey);
+  }
+
+  .dropdown-link {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0.25vw 0;
   }
 
   &.dropdown.closed {
@@ -181,7 +186,7 @@ const StyledPortfolioLinks = styled.div`
   align-items: center;
   padding: 5vw 0;
 
-  .linkContainer {
+  .portfolio-link-container {
     padding: 0 4vw;
     flex-direction: column;
     justify-content: center;
@@ -216,12 +221,18 @@ function Navbar() {
   const [dropdownClass, setDropdownClass] = useState(`dropdown closed`);
   const [isDropdownOpenPrior, setIsDropdownOpenPrior] = useState(false);
 
-  function NavLinks(linkClass: string) {
+  function NavLinks(navClass: string) {
+    let linkClass: string;
+    navClass == "desktop-nav-links" ? linkClass = "nav" : linkClass = "dropdown";
+    console.log(navClass);
+
     return (
-      <menu className={linkClass}>
+      <menu className={navClass}>
         {navData.map((navItem, i) => (
-          <li className={`${navItem.name}Link`} key={i}>
-            <a href={navItem.link} rel="noreferrer">{navItem.name}</a>
+          <li className={`${linkClass}-item`} key={i}>
+            <a className={`${linkClass}-link`} href={navItem.link} rel="noreferrer">
+              {navItem.name}
+            </a>
           </li>
         ))}
       </menu>
@@ -269,23 +280,35 @@ function Navbar() {
   return (
     <>
       <StyledNavBar className="navBar">
-        {isMobile ? NavLinks("desktopNavLinks") : MenuIcon()}
+        {isMobile ? NavLinks("desktop-nav") : MenuIcon()}
       </StyledNavBar>
       <StyledDropdown className={updateDropdownClass()}>
-        {NavLinks("mobileDropdownLinks")}
+        {NavLinks("mobile-dropdown")}
         <StyledPortfolioLinks>
           <span />
-          <div className="linkContainer">
-            <a href={sidebarData.github.url} target="_blank" rel="external noreferrer">
+          <div className="portfolio-link-container">
+            <a
+              href={sidebarData.github.url}
+              target="_blank"
+              rel="external noreferrer"
+            >
               <img src={sidebarData.github.ceruleanIcon} alt="Github Icon" />
             </a>
-            <a href={sidebarData.linkedin.url} target="_blank" rel="external noreferrer">
+            <a
+              href={sidebarData.linkedin.url}
+              target="_blank"
+              rel="external noreferrer"
+            >
               <img
                 src={sidebarData.linkedin.ceruleanIcon}
                 alt="LinkedIn Icon"
               />
             </a>
-            <a href={sidebarData.resume.url} target="_blank" rel="external noreferrer">
+            <a
+              href={sidebarData.resume.url}
+              target="_blank"
+              rel="external noreferrer"
+            >
               <img src={sidebarData.resume.ceruleanIcon} alt="Resume Icon" />
             </a>
           </div>
