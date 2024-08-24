@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { sidebarData } from "../../db/mainDb";
 import { theme } from "../../global/theme";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const StyledSidebar = styled.aside`
   display: flex;
@@ -36,18 +37,11 @@ const StyledSidebar = styled.aside`
   img:nth-last-child(1) {
     max-height: 4vw;
   }
-
-  @media (${theme.breakpoints.xs}) {
-    visibility: hidden;
-  }
-
-  @media (${theme.breakpoints.sm}) {
-    visibility: visible;
-  }
 `;
 
 function Sidebar() {
-  return (
+  const isMobile = useMediaQuery(`(${theme.breakpoints.sm})`);
+  const sidebar = (
     <StyledSidebar>
       <a
         className="btn"
@@ -75,6 +69,8 @@ function Sidebar() {
       </a>
     </StyledSidebar>
   );
+
+  return isMobile ? sidebar : null;
 }
 
 export default Sidebar;

@@ -79,7 +79,7 @@ const StyledHero = styled.section`
 
 function Hero() {
   return (
-    <StyledHero>
+    <StyledHero id="hero">
       <div className="hero-text-container">
         <h1 className="typed-text">Hello {heroData.typedText[0]}</h1>
         <div className="hero-text">

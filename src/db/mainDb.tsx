@@ -7,6 +7,7 @@ import pikminJs from "../assets/images/pikmin_js.png";
 import pikminPython from "../assets/images/pikmin_python.png";
 import pikminReact from "../assets/images/pimin_react.png";
 
+import siteIcon from "../assets/icons/site_icon.png";
 import ghIconWhite from "../assets/icons/github_icon_white.png";
 import ghIconCerulean from "../assets/icons/github_icon_cerulean.png";
 import linkedInWhite from "../assets/icons/linkedin_icon_white.png";
@@ -22,12 +23,16 @@ export const heroData = {
     "I’m a software engineer with a passion for full-stack development and UI/UX. ",
 };
 
-export const navData = [
-  { name: "About", link: "#about" },
-  { name: "Experience", link: "#experience" },
-  { name: "Projects", link: "#projects" },
-  { name: "Contact", link: "#contact" },
-];
+export const navData = {
+  siteIcon: siteIcon,
+  left: {name: "Michael Orlanes", link: "#hero"},
+  navLinks: [
+    { name: "About", link: "#about" },
+    { name: "Experience", link: "#experience" },
+    { name: "Projects", link: "#projects" },
+    { name: "Contact", link: "#contact" },
+  ]
+};
 
 export const sidebarData = {
   github: {

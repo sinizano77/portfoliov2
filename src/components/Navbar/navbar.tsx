@@ -6,17 +6,71 @@ import { theme } from "../../global/theme";
 import { sidebarData } from "../../db/mainDb";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
-//Dropdown logic needs heavy refactoring
-//Should use useEffect + componentDismount instead of CSS visibility alternaives
 const StyledNavBar = styled.nav`
   display: flex;
   position: fixed;
   width: 100%;
   z-index: 4;
-  align-items: center;
   padding: 1.25vw 0;
   background-color: white;
   box-shadow: var(--shadow-bottom);
+
+  .nav-content-container {
+    display: inherit;
+    align-items: center;
+    width: 100%;
+  }
+
+  .icon-container {
+    display: inherit;
+    position: relative;
+    align-items: center;
+    left: 3vw;
+    width: 17%;
+    z-index: 3;
+
+    @media (${theme.breakpoints.xs}) {
+      width: 60%;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      width: 17%;
+    }
+  }
+
+  .site-icon {
+    @media (${theme.breakpoints.xs}) {
+      width: 10vw;
+      height: 10vw;
+      margin-right: 5vw;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      width: 3vw;
+      height: 3vw;
+      margin-right: 1.5vw;
+    }
+  }
+
+  .name {
+    font-family: "Orkney";
+
+    @media (${theme.breakpoints.xs}) {
+      font-size: 5vw;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      font-size: 1.5vw;
+    }
+  }
+
+  .desktop-nav {
+    display: inherit;
+    position: fixed;
+    list-style-type: none;
+    width: 100%;
+    justify-content: center;
+  }
 
   a:link,
   a:visited,
@@ -24,7 +78,7 @@ const StyledNavBar = styled.nav`
     position: relative;
     text-decoration: none !important;
     color: var(--dark-grey);
-    margin: 0 2vw 0 2vw;
+    margin: 0 2vw;
   }
 
   a::after {
@@ -61,11 +115,6 @@ const StyledNavBar = styled.nav`
     transform-origin: 50%;
   }
 
-  .desktop-nav {
-    display: inherit;
-    list-style-type: none;
-  }
-
   @media (${theme.breakpoints.xs}) {
     height: 15vw;
     justify-content: flex-end;
@@ -87,6 +136,7 @@ const StyledMenuIcon = styled.div`
   min-height: 10vw;
   box-sizing: border-box;
   right: 8vw;
+  left: 18vw;
 
   .lines {
     width: 100%;
@@ -123,7 +173,7 @@ const StyledDropdown = styled.div`
   min-height: 60vw;
   background-color: white;
   overflow: hidden;
-  padding-top: 15vw;
+  padding-top: 13vw;
 
   .dropdown-link:link,
   .dropdown-link:visited,
@@ -169,15 +219,6 @@ const StyledDropdown = styled.div`
     transform: translateY(0vw);
     transition: var(--transition);
   }
-
-  &.dropdown.hidden {
-    visibility: hidden;
-  }
-
-  &.dropdown.visible {
-    visibility: visible;
-    transform: translateY(0vw);
-  }
 `;
 
 const StyledPortfolioLinks = styled.div`
@@ -219,18 +260,22 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [lineClass, setLineClass] = useState("lines unclicked");
   const [dropdownClass, setDropdownClass] = useState(`dropdown closed`);
-  const [isDropdownOpenPrior, setIsDropdownOpenPrior] = useState(false);
 
   function NavLinks(navClass: string) {
     let linkClass: string;
-    navClass == "desktop-nav-links" ? linkClass = "nav" : linkClass = "dropdown";
-    console.log(navClass);
+    navClass === "desktop-nav-links"
+      ? (linkClass = "nav")
+      : (linkClass = "dropdown");
 
     return (
       <menu className={navClass}>
-        {navData.map((navItem, i) => (
+        {navData.navLinks.map((navItem, i) => (
           <li className={`${linkClass}-item`} key={i}>
-            <a className={`${linkClass}-link`} href={navItem.link} rel="noreferrer">
+            <a
+              className={`${linkClass}-link`}
+              href={navItem.link}
+              rel="noreferrer"
+            >
               {navItem.name}
             </a>
           </li>
@@ -239,7 +284,6 @@ function Navbar() {
     );
   }
 
-  //dropdown state can be controlled by clicking on MenuIcon
   function MenuIcon() {
     return (
       <StyledMenuIcon className="menuIcon" onClick={updateMenu}>
@@ -249,40 +293,9 @@ function Navbar() {
     );
   }
 
-  function updateMenu() {
-    if (!isMenuOpen) {
-      setLineClass("lines clicked");
-      setDropdownClass(`dropdown open`);
-    } else {
-      setLineClass("lines unclicked");
-      setDropdownClass(`dropdown closed`);
-    }
-    setIsMenuOpen(!isMenuOpen);
-  }
-
-  //dropdown state can also be controlled by mediaQuery (isMobile)
-  //if dropdown is open in mobile and then switches to desktop, hide dropdown
-  //if dropdown was open prior and switches back to mobile, reopen dropdown
-  function updateDropdownClass() {
-    if (isMobile && isMenuOpen) {
-      setDropdownClass("dropdown hidden");
-      setIsDropdownOpenPrior(!isDropdownOpenPrior);
-      setIsMenuOpen(!isMenuOpen);
-    } else if (!isMobile && isDropdownOpenPrior) {
-      setDropdownClass("dropdown visible");
-      setIsDropdownOpenPrior(!isDropdownOpenPrior);
-      setIsMenuOpen(!isMenuOpen);
-    }
-
-    return dropdownClass;
-  }
-
-  return (
-    <>
-      <StyledNavBar className="navBar">
-        {isMobile ? NavLinks("desktop-nav") : MenuIcon()}
-      </StyledNavBar>
-      <StyledDropdown className={updateDropdownClass()}>
+  function dropdown() {
+    return (
+      <StyledDropdown className={dropdownClass}>
         {NavLinks("mobile-dropdown")}
         <StyledPortfolioLinks>
           <span />
@@ -315,6 +328,36 @@ function Navbar() {
           <span />
         </StyledPortfolioLinks>
       </StyledDropdown>
+    );
+  }
+
+  function updateMenu() {
+    if (!isMenuOpen) {
+      setLineClass("lines clicked");
+      setDropdownClass(`dropdown open`);
+    } else {
+      setLineClass("lines unclicked");
+      setDropdownClass(`dropdown closed`);
+    }
+    setIsMenuOpen(!isMenuOpen);
+  }
+
+  return (
+    <>
+      <StyledNavBar className="navBar">
+        <div className="nav-content-container">
+          <a className="icon-container" href={navData.left.link}>
+            <img
+              className="site-icon"
+              src={navData.siteIcon}
+              alt="Website icon"
+            />
+            <p className="name">{navData.left.name}</p>
+          </a>
+          {isMobile ? NavLinks("desktop-nav") : MenuIcon()}
+        </div>
+      </StyledNavBar>
+      {!isMobile ? dropdown() : null}
     </>
   );
 }
