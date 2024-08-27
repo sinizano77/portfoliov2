@@ -77,12 +77,13 @@ export const GlobalStyle = createGlobalStyle`
       letter-spacing: 0.1vw;
       line-height: none;
       font-size: 4vw;
+      line-height: 7vw;
     }
 
     @media (${theme.breakpoints.sm}) {
-      letter-spacing: 0.05vw;
+      letter-spacing: 0.02vw;
       line-height: 2vw;
-      font-size: 1.3vw;
+      font-size: 1.2vw;
     }
   }
 

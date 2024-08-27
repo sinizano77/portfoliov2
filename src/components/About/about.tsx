@@ -27,7 +27,7 @@ const StyledAbout = styled.section`
     @media (${theme.breakpoints.xs}) {
       width: 50vw;
       left: 33vw;
-      bottom: -2vw;
+      bottom: -4vw;
     }
 
     @media (${theme.breakpoints.sm}) {
@@ -38,8 +38,15 @@ const StyledAbout = styled.section`
   }
 
   .steve:hover {
-    transform: translateY(-3vw);
     transition: var(--transition);
+
+    @media (${theme.breakpoints.xs}) {
+      transform: translateY(-10vw);
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      transform: translateY(-3vw);
+    }
   }
 
   .section-container {
@@ -55,7 +62,6 @@ const StyledAbout = styled.section`
     align-items: center;
     width: 100%;
     padding-top: 4vw;
-    padding-bottom: 2vw;
 
     @media (${theme.breakpoints.xs}) {
       flex-direction: column-reverse;
@@ -83,9 +89,14 @@ const StyledAbout = styled.section`
     bottom: 5vw;
     z-index: 2;
 
+    b {
+      font-family: "Orkney";
+      text-decoration: underline;
+    }
+
     @media (${theme.breakpoints.xs}) {
-      width: 70%;
-      text-align: center;
+      width: 80%;
+      text-align: left;
     }
 
     @media (${theme.breakpoints.sm}) {
@@ -100,7 +111,7 @@ const StyledAbout = styled.section`
 
     @media (${theme.breakpoints.xs}) {
       flex-direction: column;
-      padding: 0 11vw;
+      padding: 6vw 9vw;
     }
 
     @media (${theme.breakpoints.sm}) {
@@ -176,7 +187,7 @@ const StyledAbout = styled.section`
   .pikmin-js,
   .pikmin-react {
     @media (${theme.breakpoints.xs}) {
-      max-height: 11vw;
+      max-height: 12vw;
     }
 
     @media (${theme.breakpoints.sm}) {
@@ -215,6 +226,7 @@ function About() {
               <h2>{aboutData.title}</h2>
               <p>{aboutData.text1}</p>
               <p>{aboutData.text2}</p>
+              <p>{aboutData.text3}</p>
             </div>
           </div>
 
