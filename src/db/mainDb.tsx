@@ -14,6 +14,8 @@ import ghIconWhite from "../assets/icons/github_icon_white.png";
 import ghIconCerulean from "../assets/icons/github_icon_cerulean.png";
 import linkedInWhite from "../assets/icons/linkedin_icon_white.png";
 import linkedInCerulean from "../assets/icons/linkedin_icon_cerulean.png";
+import behanceWhite from "../assets/icons/behance_icon_white.png";
+import behanceCerulean from "../assets/icons/behance_icon_cerulean.png";
 import resumeIconWhite from "../assets/icons/resume_icon_white.png";
 import resumeIconCerulean from "../assets/icons/resume_icon_cerulean.png";
 
@@ -47,6 +49,11 @@ export const sidebarData = {
     ceruleanIcon: linkedInCerulean,
     url: "https://www.linkedin.com/in/michael-orlanes/",
   },
+  behance: {
+    whiteIcon: behanceWhite,
+    ceruleanIcon: behanceCerulean,
+    url: "https://www.behance.net/michaelorlanes",
+  },
   resume: {
     whiteIcon: resumeIconWhite,
     ceruleanIcon: resumeIconCerulean,
@@ -58,10 +65,10 @@ export const aboutData = {
   title: "About Me",
   text1: (
     <div>
-      Ever since I was young, I’ve always had a passion for creativity. I
-      would spend hours, sometimes days on drawings, arts and crafts, or honing
-      in my musical capabilities. When it came time to choose a career, I
-      was inspired to delve into a new creative medium - coding.
+      Ever since I was young, I’ve always had a passion for creativity. I would
+      spend hours, sometimes days on drawings, arts and crafts, or honing in my
+      musical capabilities. When it came time to choose a career, I was inspired
+      to delve into a new creative medium - coding.
     </div>
   ),
   text2: (
@@ -78,9 +85,9 @@ export const aboutData = {
     <div>
       You might have also noticed a little yellow creature on my page. His name
       is <b>Steve</b> and he’s a <b>Pikmin</b>. He’s my partner when I do coding
-      and design projects and I like to bounce my thought processes and ideas off
-      of him every now and then. He’s also my traveling buddy and accompanies me
-      wherever in the world I decide to go next!
+      and design projects and I like to bounce my thought processes and ideas
+      off of him every now and then. He’s also my traveling buddy and
+      accompanies me wherever in the world I decide to go next!
     </div>
   ),
   images: {

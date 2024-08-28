@@ -54,6 +54,7 @@ const StyledNavBar = styled.nav`
 
   .name {
     font-family: "Orkney";
+    position: relative;
 
     @media (${theme.breakpoints.xs}) {
       font-size: 5vw;
@@ -81,7 +82,8 @@ const StyledNavBar = styled.nav`
     margin: 0 2vw;
   }
 
-  a::after {
+  a::after,
+  .name::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -92,6 +94,12 @@ const StyledNavBar = styled.nav`
     transform-origin: 50%;
     transition: transform 0.25s ease-out;
     border-radius: 20vw;
+  }
+
+  a:hover::after,
+  .name:hover::after {
+    transform: scaleX(1);
+    transform-origin: 50%;
   }
 
   li:nth-child(n + 1) a::after {
@@ -106,13 +114,9 @@ const StyledNavBar = styled.nav`
     background-color: var(--lime-green);
   }
 
-  li:nth-child(n + 4) a::after {
+  li:nth-child(n + 4) a::after,
+  .name::after {
     background-color: var(--cerulean-blue);
-  }
-
-  a:hover::after {
-    transform: scaleX(1);
-    transform-origin: 50%;
   }
 
   @media (${theme.breakpoints.xs}) {
@@ -228,16 +232,17 @@ const StyledPortfolioLinks = styled.div`
   padding: 5vw 0;
 
   .portfolio-link-container {
-    padding: 0 4vw;
+    padding: 0 3.5vw;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 54vw;
+    min-width: 68vw;
   }
 
   img {
     max-width: 12vw;
-    margin: 0 3vw;
+    max-height: 13vw;
+    margin: 0 2.5vw;
   }
 
   span {
@@ -316,6 +321,13 @@ function Navbar() {
                 src={sidebarData.linkedin.ceruleanIcon}
                 alt="LinkedIn Icon"
               />
+            </a>
+            <a
+              href={sidebarData.behance.url}
+              target="_blank"
+              rel="external noreferrer"
+            >
+              <img src={sidebarData.behance.ceruleanIcon} alt="Behance Icon" />
             </a>
             <a
               href={sidebarData.resume.url}

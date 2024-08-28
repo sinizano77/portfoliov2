@@ -61,6 +61,14 @@ function Sidebar() {
       </a>
       <a
         className="btn"
+        href={sidebarData.behance.url}
+        target="_blank"
+        rel="external"
+      >
+        <img src={sidebarData.behance.whiteIcon} alt="Behance Icon" />
+      </a>
+      <a
+        className="btn"
         href={sidebarData.resume.url}
         target="_blank"
         rel="external"
