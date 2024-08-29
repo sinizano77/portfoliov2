@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { sidebarData } from "../../db/mainDb";
 import { theme } from "../../global/theme";
-import useMediaQuery from "../../hooks/useMediaQuery";
+import { useMediaQuery } from '@mui/material';
 
 const StyledSidebar = styled.aside`
   display: flex;
@@ -16,7 +16,6 @@ const StyledSidebar = styled.aside`
   .btn {
     background-color: transparent;
     cursor: pointer;
-    padding: 0 0.1vw;
   }
 
   .btn:hover {
@@ -26,16 +25,12 @@ const StyledSidebar = styled.aside`
   }
 
   img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0.6vw 0.5vw;
-    max-height: 2.8vw;
+    margin: 0.4vw 0.6vw;
     max-width: 2.8vw;
   }
 
   img:nth-last-child(1) {
-    max-height: 4vw;
+    max-height: 3.5vw;
   }
 `;
 
@@ -47,7 +42,7 @@ function Sidebar() {
         className="btn"
         href={sidebarData.github.url}
         target="_blank"
-        rel="external"
+        rel="external noreferrer"
       >
         <img src={sidebarData.github.whiteIcon} alt="Github Icon" />
       </a>
@@ -55,7 +50,7 @@ function Sidebar() {
         className="btn"
         href={sidebarData.linkedin.url}
         target="_blank"
-        rel="external"
+        rel="external noreferrer"
       >
         <img src={sidebarData.linkedin.whiteIcon} alt="LinkedIn Icon" />
       </a>
@@ -63,7 +58,7 @@ function Sidebar() {
         className="btn"
         href={sidebarData.behance.url}
         target="_blank"
-        rel="external"
+        rel="external noreferrer"
       >
         <img src={sidebarData.behance.whiteIcon} alt="Behance Icon" />
       </a>
@@ -71,7 +66,7 @@ function Sidebar() {
         className="btn"
         href={sidebarData.resume.url}
         target="_blank"
-        rel="external"
+        rel="external noreferrer"
       >
         <img src={sidebarData.resume.whiteIcon} alt="Resume Icon" />
       </a>

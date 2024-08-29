@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { theme } from "../../global/theme";
 import { constructionData } from "./constructionDb";
-import useMediaQuery from "../../hooks/useMediaQuery";
+import { useMediaQuery } from '@mui/material';
 
 interface GearProps {
   margin: string;

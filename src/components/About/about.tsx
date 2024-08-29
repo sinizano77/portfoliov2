@@ -6,15 +6,19 @@ import { createBubble } from "../bubble";
 import { bubbleData } from "./bubbleAboutData";
 import { aboutData, skillData } from "../../db/mainDb";
 
-//todo: modify steve1.png to use useEffect rather than @media to avoid animation rerendering on resize
+//todo: modify steve1.png to use useEffect to avoid animation rerendering on resize
 const StyledAbout = styled.section`
+  display: flex;
+  flex-direction: column;
   position: relative;
 
   @media (${theme.breakpoints.xs}) {
+    align-items: center;
     margin-top: -30vw;
   }
 
   @media (${theme.breakpoints.sm}) {
+    align-items: flex-start;
     margin-top: -15vw;
   }
 
@@ -26,14 +30,13 @@ const StyledAbout = styled.section`
 
     @media (${theme.breakpoints.xs}) {
       width: 50vw;
-      left: 33vw;
-      bottom: -4vw;
+      left: 8vw;
     }
 
     @media (${theme.breakpoints.sm}) {
       width: 20vw;
-      left: 10vw;
-      bottom: 1.75vw;
+      left: 15vw;
+      bottom: 2.5vw;
     }
   }
 
@@ -41,7 +44,7 @@ const StyledAbout = styled.section`
     transition: var(--transition);
 
     @media (${theme.breakpoints.xs}) {
-      transform: translateY(-10vw);
+      transform: translateY(-8vw);
     }
 
     @media (${theme.breakpoints.sm}) {
@@ -95,7 +98,7 @@ const StyledAbout = styled.section`
     }
 
     @media (${theme.breakpoints.xs}) {
-      width: 80%;
+      width: 85%;
       text-align: left;
     }
 
@@ -111,12 +114,12 @@ const StyledAbout = styled.section`
 
     @media (${theme.breakpoints.xs}) {
       flex-direction: column;
-      padding: 6vw 9vw;
+      padding-inline: 7vw;
     }
 
     @media (${theme.breakpoints.sm}) {
       flex-direction: row;
-      padding: 0 9vw;
+      padding-inline: 9vw;
     }
   }
 
@@ -126,7 +129,6 @@ const StyledAbout = styled.section`
     flex-direction: column;
     position: relative;
     color: white;
-    align-items: flex-start;
 
     @media (${theme.breakpoints.xs}) {
       max-width: 100%;

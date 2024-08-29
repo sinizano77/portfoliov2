@@ -15,6 +15,16 @@ export const GlobalStyle = createGlobalStyle`
   body {
     width: 100%;
   }
+
+  a {
+    color: var(--dark-grey);
+    text-decoration: none;
+  }
+  
+  menu {
+    padding-inline: 0 !important;
+    margin-block-end: 1vw !important;
+  }
   
   h1 {
     font-family: "JetBrainsMono";

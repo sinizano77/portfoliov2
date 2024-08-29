@@ -1,60 +1,75 @@
-import { useState } from "react";
 import * as React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { navData } from "../../db/mainDb";
 import { theme } from "../../global/theme";
 import { sidebarData } from "../../db/mainDb";
-import useMediaQuery from "../../hooks/useMediaQuery";
+import { useMediaQuery } from '@mui/material';
 
 const StyledNavBar = styled.nav`
   display: flex;
   position: fixed;
   width: 100%;
   z-index: 4;
-  padding: 1.25vw 0;
   background-color: white;
   box-shadow: var(--shadow-bottom);
 
+  @media (${theme.breakpoints.xs}) {
+    height: 17vw;
+  }
+
+  @media (${theme.breakpoints.sm}) {
+    height: 5vw;
+  }
+
   .nav-content-container {
     display: inherit;
+    position: relative;
     align-items: center;
-    width: 100%;
+    justify-content: space-between;
+    padding-inline: 8vw;
+
+    @media (${theme.breakpoints.xs}) {
+      width: 90%;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      width: 100%;
+    }
+  }
+
+  .desktop-nav {
+    display: inherit;
+    list-style-type: none;
   }
 
   .icon-container {
     display: inherit;
-    position: relative;
     align-items: center;
-    left: 3vw;
-    width: 17%;
     z-index: 3;
 
     @media (${theme.breakpoints.xs}) {
-      width: 60%;
+      gap: 5vw;
     }
 
     @media (${theme.breakpoints.sm}) {
-      width: 17%;
+      gap: 1.5vw;
     }
   }
 
   .site-icon {
     @media (${theme.breakpoints.xs}) {
       width: 10vw;
-      height: 10vw;
-      margin-right: 5vw;
     }
 
     @media (${theme.breakpoints.sm}) {
       width: 3vw;
-      height: 3vw;
-      margin-right: 1.5vw;
     }
   }
 
   .name {
-    font-family: "Orkney";
     position: relative;
+    font-family: "Orkney";
 
     @media (${theme.breakpoints.xs}) {
       font-size: 5vw;
@@ -65,24 +80,14 @@ const StyledNavBar = styled.nav`
     }
   }
 
-  .desktop-nav {
-    display: inherit;
-    position: fixed;
-    list-style-type: none;
-    width: 100%;
-    justify-content: center;
-  }
-
-  a:link,
-  a:visited,
-  a:active {
+  .nav-link:link,
+  .nav-link:visited,
+  .nav-link:active {
     position: relative;
-    text-decoration: none !important;
-    color: var(--dark-grey);
-    margin: 0 2vw;
+    margin-inline: 2.5vw;
   }
 
-  a::after,
+  .nav-link::after,
   .name::after {
     content: "";
     position: absolute;
@@ -96,57 +101,40 @@ const StyledNavBar = styled.nav`
     border-radius: 20vw;
   }
 
-  a:hover::after,
+  .nav-link:hover::after,
   .name:hover::after {
     transform: scaleX(1);
     transform-origin: 50%;
   }
 
-  li:nth-child(n + 1) a::after {
+  .nav-item:nth-child(n + 1) .nav-link::after {
     background-color: var(--orange);
   }
 
-  li:nth-child(n + 2) a::after {
+  .nav-item:nth-child(n + 2) .nav-link::after {
     background-color: var(--crimson-red);
   }
 
-  li:nth-child(n + 3) a::after {
+  .nav-item:nth-child(n + 3) .nav-link::after {
     background-color: var(--lime-green);
   }
 
-  li:nth-child(n + 4) a::after,
+  .nav-item:nth-child(n + 4) .nav-link::after,
   .name::after {
     background-color: var(--cerulean-blue);
-  }
-
-  @media (${theme.breakpoints.xs}) {
-    height: 15vw;
-    justify-content: flex-end;
-  }
-
-  @media (${theme.breakpoints.sm}) {
-    height: 2vw;
-    justify-content: center;
   }
 `;
 
 const StyledMenuIcon = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
   min-width: 10vw;
-  min-height: 10vw;
-  box-sizing: border-box;
-  right: 8vw;
-  left: 18vw;
 
   .lines {
     width: 100%;
     height: 1vw;
     background-color: var(--dark-grey);
-    margin: 1.5vw 0;
+    margin-block: 1.5vw;
     border-radius: 3vw / 3vw;
   }
 
@@ -176,41 +164,24 @@ const StyledDropdown = styled.div`
   min-width: 100%;
   min-height: 60vw;
   background-color: white;
-  overflow: hidden;
   padding-top: 13vw;
-
-  .dropdown-link:link,
-  .dropdown-link:visited,
-  .dropdown-link:hover,
-  .dropdown-link:active {
-    text-decoration: none !important;
-    color: var(--dark-grey);
-  }
 
   .mobile-dropdown {
     list-style-type: none;
     display: block;
-    justify-content: center;
-    align-items: center;
-    box-sizing: box-border;
-    padding-inline: 0 !important;
-    margin-block-end: 1vw !important;
-    min-width: 85%;
   }
 
   .dropdown-item {
-    list-style-type: none;
-    font-size: 5vw;
-    padding: 5vw 0;
+    padding-block: 5vw;
     border-bottom: solid 0.5vw;
     border-color: var(--light-grey);
   }
 
   .dropdown-link {
     display: flex;
+    list-style-type: none;
+    font-size: 5vw;
     justify-content: center;
-    width: 100%;
-    padding: 0.25vw 0;
   }
 
   &.dropdown.closed {
@@ -227,22 +198,18 @@ const StyledDropdown = styled.div`
 
 const StyledPortfolioLinks = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 5vw 0;
+  padding-block: 5vw;
 
   .portfolio-link-container {
-    padding: 0 3.5vw;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding-inline: 3.5vw;
     min-width: 68vw;
   }
 
   img {
     max-width: 12vw;
     max-height: 13vw;
-    margin: 0 2.5vw;
+    margin-inline: 2.5vw;
   }
 
   span {
@@ -268,9 +235,7 @@ function Navbar() {
 
   function NavLinks(navClass: string) {
     let linkClass: string;
-    navClass === "desktop-nav-links"
-      ? (linkClass = "nav")
-      : (linkClass = "dropdown");
+    navClass === "desktop-nav" ? (linkClass = "nav") : (linkClass = "dropdown");
 
     return (
       <menu className={navClass}>
@@ -343,6 +308,7 @@ function Navbar() {
     );
   }
 
+  //todo: dismount/mount dropdown based on isMenuOpen instead of CSS visiblity
   function updateMenu() {
     if (!isMenuOpen) {
       setLineClass("lines clicked");

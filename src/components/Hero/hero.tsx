@@ -13,35 +13,35 @@ const StyledHero = styled.section`
   background-image: var(--gradient);
 
   @media (${theme.breakpoints.xs}) {
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    row-gap: 5vw;
-    padding: 15vw 10vw 40vw;
+    flex-direction: column;
+    gap: 10vw;
+    padding-top: 15vw;
+    padding-bottom: 40vw;
   }
 
   @media (${theme.breakpoints.sm}) {
-    flex-direction: row;
-    justify-content: space-around;
     align-items: flex-start;
-    padding: 5vw 0 10vw;
+    gap: 0;
+    flex-direction: row;
+    padding-top: 5vw;
+    padding-bottom: 10vw;
+    padding-inline: 8vw;
+
   }
 
   .hero-text-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 100%;
 
     @media (${theme.breakpoints.xs}) {
-      max-width: 100%;
       text-align: center;
-      margin-left: none;
     }
 
     @media (${theme.breakpoints.sm}) {
-      max-width: 43vw;
       text-align: start;
-      margin-left: 7vw;
     }
   }
 
@@ -72,7 +72,6 @@ const StyledHero = styled.section`
     position: relative;
     flex-direction: row;
     align-items: flex-start;
-    min-width: 45vw;
     bottom: 1vw;
   }
 `;
