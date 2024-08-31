@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { theme } from "../../global/theme";
 import Blade from "../blade";
@@ -6,7 +7,6 @@ import { createBubble } from "../bubble";
 import { bubbleData } from "./bubbleAboutData";
 import { aboutData, skillData } from "../../db/mainDb";
 
-//todo: modify steve1.png to use useEffect to avoid animation rerendering on resize
 const StyledAbout = styled.section`
   display: flex;
   flex-direction: column;
@@ -20,36 +20,6 @@ const StyledAbout = styled.section`
   @media (${theme.breakpoints.sm}) {
     align-items: flex-start;
     margin-top: -15vw;
-  }
-
-  .steve {
-    position: inherit;
-    rotate: -5deg;
-    transform: translateY(0);
-    transition: var(--transition);
-
-    @media (${theme.breakpoints.xs}) {
-      width: 50vw;
-      left: 8vw;
-    }
-
-    @media (${theme.breakpoints.sm}) {
-      width: 20vw;
-      left: 15vw;
-      bottom: 2.5vw;
-    }
-  }
-
-  .steve:hover {
-    transition: var(--transition);
-
-    @media (${theme.breakpoints.xs}) {
-      transform: translateY(-8vw);
-    }
-
-    @media (${theme.breakpoints.sm}) {
-      transform: translateY(-3vw);
-    }
   }
 
   .section-container {
@@ -208,14 +178,74 @@ const StyledAbout = styled.section`
   }
 `;
 
+//todo?: have a global hook that can stop CSS animations/transitions on resize
+interface SteveProps {
+  transition: string;
+}
+
+const StyledSteve = styled.img<SteveProps>`
+  position: inherit;
+  rotate: -5deg;
+  transform: translateY(0);
+  transition: ${(props) => props.transition};
+
+  @media (${theme.breakpoints.xs}) {
+    width: 50vw;
+    left: 8vw;
+  }
+
+  @media (${theme.breakpoints.sm}) {
+    width: 20vw;
+    left: 15vw;
+    bottom: 2.5vw;
+  }
+
+  &:hover {
+    transition: ${(props) => props.transition};
+
+    @media (${theme.breakpoints.xs}) {
+      transform: translateY(-8vw);
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      transform: translateY(-3vw);
+    }
+  }
+`;
+
+function Steve() {
+  const [isResizing, setIsResizing] = useState(false);
+  console.log(isResizing);
+
+  //stops CSS transition from playing on resize
+  useEffect(() => {
+    let timer: any;
+    function SetResizingState() {
+      timer ? clearTimeout(timer) : setIsResizing(true)
+      
+      timer = setTimeout(() => {
+        setIsResizing(false);
+      }, 100);
+    }
+
+    window.addEventListener("resize", SetResizingState);
+    return () => window.removeEventListener("resize", SetResizingState);
+  }, [isResizing]);
+
+  return (
+    <StyledSteve
+      transition={isResizing ? "none" : "var(--transition)"}
+      className="steve"
+      src={aboutData.images.steve1}
+      alt="Yellow Pikmin poking its head out"
+    />
+  );
+}
+
 function About() {
   return (
     <StyledAbout id="about">
-      <img
-        className="steve"
-        src={aboutData.images.steve1}
-        alt="Yellow Pikmin poking its head out"
-      />
+      <Steve />
       <Blade color="var(--orange)" angletop="-5deg" anglebottom="-5deg">
         <div className="section-container">
           <div className="about-container">
