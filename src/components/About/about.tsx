@@ -259,6 +259,7 @@ function About() {
               <p>{aboutData.text1}</p>
               <p>{aboutData.text2}</p>
               <p>{aboutData.text3}</p>
+              <p>{aboutData.text4}</p>
             </div>
           </div>
 

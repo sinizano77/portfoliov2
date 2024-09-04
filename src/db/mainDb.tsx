@@ -65,23 +65,31 @@ export const aboutData = {
   title: "About Me",
   text1: (
     <div>
-      Ever since I was young, I’ve always had a passion for creativity. I would
-      spend hours, sometimes days on drawings, arts and crafts, or honing in my
-      musical capabilities. When it came time to choose a career, I was inspired
-      to delve into a new creative medium - coding.
+      Hello! I am Michael Orlanes, a dedicated software engineer with a
+      specialization in <b>full-stack development</b> and <b>UI/UX design</b>. I
+      am actively seeking opportunities to elevate the standards of coding and
+      software development through innovative solutions.
     </div>
   ),
   text2: (
     <div>
-      Currently, I invest a lot of my time in meticulously crafting and coding
-      the perfect user experiences and ensuring that each one feels unqiue. I am
-      continually trying to improve myself as a designer and a developer by
-      working on <b>personal projects</b>, learning the <b>latest technology</b>
-      , and <b>seeking opportunities</b> that can expand and improve my
-      skillsets.
+      After graduating, I took time to engage in personal growth and
+      self-discovery, which allowed me to clarify my career aspirations and
+      enhance my overall well-being. This period of introspection also
+      strengthened my relationships with the friends and family who have
+      supported me along the way.
     </div>
   ),
   text3: (
+    <div>
+      I am now prepared to advance into an engineering role, having invested
+      considerable effort in refining my technical skills and staying up-to-date
+      with the <b>latest technologies</b>. My focus is on meticulously crafting
+      high-quality, distinctive <b>personal projects</b> that demonstrate excellence and
+      innovation.
+    </div>
+  ),
+  text4: (
     <div>
       You might have also noticed a little yellow creature on my page. His name
       is <b>Steve</b> and he’s a <b>Pikmin</b>. He’s my partner when I do coding
