@@ -1,4 +1,5 @@
 //todo?: Migrate experience-top to be part of Experience component
+//todo: refactor layering and positioning css of pikmin-container and bottom blades
 function getBladeStyle(type: string) {
   switch (type) {
     case "section":
@@ -9,28 +10,34 @@ function getBladeStyle(type: string) {
 
         &:before, &:after {
             background-color: var(--orange);
-            transform: skewY(-5deg);
-            height: 10vw;
         }
 
         &:before {
             top: -5vw;
+            transform: skewY(-5deg);
+            height: 10vw;
         }
 
         &:after {
-            bottom: -4vw;
+            bottom: none;
+            transform: skewY(-8deg);
+            height: 15vw;
+            z-index: -1;
+            bottom: -8vw;
         }`;
 
     case "experience-top":
       return `
         background-color: var(--crimson-red);
         z-index: 1;
+        height: 10vw;
+        bottom: 20vw;
 
         &:after {
-            transform: skewY(5deg);
+            transform: skewY(7deg);
             background-color: var(--crimson-red);
-            bottom: 0vw;
-            height: 10vw;
+            height: 15vw;
+            z-index: 2;
         }`;
   }
 }

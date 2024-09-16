@@ -150,33 +150,30 @@ const StyledAbout = styled.section`
     display: inherit;
     position: relative;
     justify-content: flex-end;
-    rotate: -5deg;
-    z-index: 2;
+    width: 100%;
+    rotate: -8deg;
     right: 10vw;
-    bottom: -2vw;
+    z-index: 2;
+
+    @media (${theme.breakpoints.xs}) {
+      bottom: 6.5vw;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      bottom: 2vw;
+    }
   }
 
   .pikmin-python,
   .pikmin-js,
   .pikmin-react {
     @media (${theme.breakpoints.xs}) {
-      max-height: 12vw;
+      max-height: 10vw;
     }
 
     @media (${theme.breakpoints.sm}) {
       max-height: 6vw;
     }
-  }
-
-  .red-blade {
-    position: relative;
-    background-color: var(--crimson-red);
-    width: 100%;
-    height: 10vw;
-    bottom: 5vw;
-    margin-bottom: 5vw;
-    rotate: 5deg;
-    z-index: 0;
   }
 `;
 
@@ -286,25 +283,25 @@ function About() {
               </ul>
             </div>
           </div>
-          <div className="pikmin-container">
-            <img
-              className="pikmin-python"
-              src={aboutData.pikmin.python}
-              alt="pikmin carrying Python icon"
-            />
-            <img
-              className="pikmin-js"
-              src={aboutData.pikmin.js}
-              alt="pikmin carrying JavaScript icon"
-            />
-            <img
-              className="pikmin-react"
-              src={aboutData.pikmin.react}
-              alt="pikmin carrying React icon"
-            />
-          </div>
         </div>
       </Blade>
+      <div className="pikmin-container">
+        <img
+          className="pikmin-python"
+          src={aboutData.pikmin.python}
+          alt="pikmin carrying Python icon"
+        />
+        <img
+          className="pikmin-js"
+          src={aboutData.pikmin.js}
+          alt="pikmin carrying JavaScript icon"
+        />
+        <img
+          className="pikmin-react"
+          src={aboutData.pikmin.react}
+          alt="pikmin carrying React icon"
+        />
+      </div>
       <Blade componentStylings={getBladeStyle} type="experience-top" />
     </StyledAbout>
   );
