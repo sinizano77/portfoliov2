@@ -1,10 +1,11 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { theme } from "../../global/theme";
 import Blade from "../blade";
-import { createBubble } from "../bubble";
-import { bubbleData } from "./bubbleAboutData";
+import Bubble from "../bubble";
+import getBladeStyle from "./bladeAboutData";
+import getBubbleStyle from "./bubbleAboutData";
+import { useState, useEffect } from "react";
+import { theme } from "../../global/theme";
 import { aboutData, skillData } from "../../db/mainDb";
 
 const StyledAbout = styled.section`
@@ -167,13 +168,14 @@ const StyledAbout = styled.section`
     }
   }
 
-  .temp-white {
+  .red-blade {
     position: relative;
-    background-color: white;
+    background-color: var(--crimson-red);
     width: 100%;
-    height: 4vw;
-    bottom: 8vw;
-    left: 0vw;
+    height: 10vw;
+    bottom: 5vw;
+    margin-bottom: 5vw;
+    rotate: 5deg;
     z-index: 0;
   }
 `;
@@ -215,14 +217,13 @@ const StyledSteve = styled.img<SteveProps>`
 
 function Steve() {
   const [isResizing, setIsResizing] = useState(false);
-  console.log(isResizing);
 
   //stops CSS transition from playing on resize
   useEffect(() => {
     let timer: any;
     function SetResizingState() {
-      timer ? clearTimeout(timer) : setIsResizing(true)
-      
+      timer ? clearTimeout(timer) : setIsResizing(true);
+
       timer = setTimeout(() => {
         setIsResizing(false);
       }, 100);
@@ -246,13 +247,13 @@ function About() {
   return (
     <StyledAbout id="about">
       <Steve />
-      <Blade color="var(--orange)" angletop="-5deg" anglebottom="-5deg">
+      <Blade componentStylings={getBladeStyle} type="section">
         <div className="section-container">
           <div className="about-container">
             <div className="bubble-about-container">
-              {createBubble(bubbleData.bubble1)}
-              {createBubble(bubbleData.bubble2)}
-              {createBubble(bubbleData.bubble3)}
+              <Bubble componentStylings={getBubbleStyle} type="bubble-1" />
+              <Bubble componentStylings={getBubbleStyle} type="bubble-2" />
+              <Bubble componentStylings={getBubbleStyle} type="bubble-3" />
             </div>
             <div className="about-text-container">
               <h2>{aboutData.title}</h2>
@@ -304,10 +305,9 @@ function About() {
           </div>
         </div>
       </Blade>
-      <div className="temp-white" />
+      <Blade componentStylings={getBladeStyle} type="experience-top" />
     </StyledAbout>
   );
-  //todo: find alt solution for temp-white div to cover up bleeding Blade
 }
 
 export default About;

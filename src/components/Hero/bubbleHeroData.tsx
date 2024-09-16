@@ -1,57 +1,69 @@
 import { heroData } from "../../db/mainDb";
+import { theme } from "../../global/theme";
 
-export const bubbleData = {
-  bubble1: {
-    margins: {
-      xs: "-3vw -4vw 0 0",
-      sm: "1vw -4vw 0 0",
-    },
-    borderWidths: {
-      xs: "2.5vw",
-      sm: "1.4vw",
-    },
-    borderColor: "var(--yellow)",
-    sizes: {
-      xs: "15vw",
-      sm: "7vw",
-    },
-    colorFill: "var(--cerulean-blue)",
-    imageFill: "none",
-  },
+function getBubbleStyle(type: string) {
+  switch (type) {
+    case "bubble-1": {
+      return `
+        border-color: var(--yellow);
+        background-color: var(--cerulean-blue);
 
-  bubble2: {
-    margins: {
-      xs: "75vw 30vw 0 -5vw",
-      sm: "29vw -15vw 0 0",
-    },
-    borderWidths: {
-      xs: "2vw",
-      sm: "0.8vw",
-    },
-    borderColor: "var(--lime-green)",
-    sizes: {
-      xs: "10vw",
-      sm: "4vw",
-    },
-    colorFill: "var(--crimson-red)",
-    imageFill: "none",
-  },
+        @media (${theme.breakpoints.xs}) {
+          margin: -3vw -4vw 0 0;
+          border-width: 2.5vw;
+          min-width: 15vw;
+          min-height: 15vw;
+        }
 
-  bubble3: {
-    margins: {
-      xs: "10vw auto auto -42vw",
-      sm: "4vw auto auto 16vw",
-    },
-    borderWidths: {
-      xs: "3.5vw",
-      sm: "1.25vw",
-    },
-    borderColor: "var(--orange)",
-    sizes: {
-      xs: "60vw",
-      sm: "22vw",
-    },
-    colorFill: "none",
-    imageFill: heroData.image,
-  },
-};
+        @media (${theme.breakpoints.sm}) {
+          margin: 1vw -4vw 0 0;
+          border-width: 1.4vw;
+          min-width: 7vw;
+          min-height: 7vw;
+        }
+      `;
+    }
+    case "bubble-2": {
+      return `
+        border-color: var(--lime-green);
+        background-color: var(--crimson-red);
+
+        @media (${theme.breakpoints.xs}) {
+          margin: 75vw 30vw 0 -5vw;
+          border-width: 2vw;
+          min-width: 10vw;
+          min-height: 10vw;
+        }
+
+        @media (${theme.breakpoints.sm}) {
+          margin: 29vw -15vw 0 0;
+          border-width: 0.8vw;
+          min-width: 4vw;
+          min-height: 4vw;
+        }
+      `;
+    }
+    case "bubble-3": {
+      return `
+        border-color: var(--orange);
+        background-image: url("${heroData.image}");
+
+        @media (${theme.breakpoints.xs}) {
+          margin: 10vw auto auto -42vw;
+          border-width: 3.5vw;
+          min-width: 60vw;
+          min-height: 60vw;
+        }
+
+        @media (${theme.breakpoints.sm}) {
+          margin: 4vw auto auto 16vw;
+          border-width: 1.25vw;
+          min-width: 22vw;
+          min-height: 22vw;
+        }
+      `;
+    }
+  }
+}
+
+export default getBubbleStyle;

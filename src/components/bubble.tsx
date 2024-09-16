@@ -1,76 +1,28 @@
 import * as React from "react";
 import styled from "styled-components";
-import { theme } from "../global/theme";
 
 interface BubbleProps {
-  margins: any;
-  borderwidths: any;
-  bordercolor: string;
-  sizes: any;
-  colorfill?: string;
-  imgfill?: string;
+  componentStylings: Function;
+  type: string;
 }
 
+//base stylings for all "Bubble" components
 const StyledBubble = styled.div<BubbleProps>`
+  ${(props) => props.componentStylings(props.type)}
   position: relative;
   border-radius: 50%;
   border-style: solid;
-  border-color: ${(props) => props.bordercolor};
-  background-color: ${(props) => props.colorfill};
-  background-image: url(${(props) => props.imgfill});
   background-position: center;
   background-size: cover;
-  z-index: 2;
-
-  @media (${theme.breakpoints.xs}) {
-    margin: ${(props) => props.margins.xs};
-    min-width: ${(props) => props.sizes.xs};
-    min-height: ${(props) => props.sizes.xs};
-    border-width: ${(props) => props.borderwidths.xs};
-  }
-
-  @media (${theme.breakpoints.sm}) {
-    margin: ${(props) => props.margins.sm};
-    min-width: ${(props) => props.sizes.sm};
-    min-height: ${(props) => props.sizes.sm};
-    border-width: ${(props) => props.borderwidths.sm};
-  }
+  z-index: 3;
 `;
 
-export function createBubble(bubble: any) {
-  const margins = bubble.margins;
-  const borderWidths = bubble.borderWidths;
-  const borderColor = bubble.borderColor;
-  const sizes = bubble.sizes;
-  const colorFill = bubble.colorFill;
-  const imageFill = bubble.imageFill;
-  return Bubble(
-    margins,
-    borderWidths,
-    borderColor,
-    sizes,
-    colorFill,
-    imageFill
-  );
-}
-
-function Bubble(
-  margins: any,
-  borderWidths: any,
-  borderColor: string,
-  sizes: any,
-  colorFill: string = "none",
-  imageFill: string = "none"
-) {
+function Bubble(props: any) {
   return (
     <StyledBubble
-      margins={margins}
-      borderwidths={borderWidths}
-      bordercolor={borderColor}
-      sizes={sizes}
-      colorfill={colorFill}
-      imgfill={imageFill}
-    ></StyledBubble>
+      componentStylings={props.componentStylings}
+      type={props.type}
+    />
   );
 }
 

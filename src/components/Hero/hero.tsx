@@ -1,11 +1,11 @@
 import * as React from "react";
 import styled from "styled-components";
+import Bubble from "../bubble";
+import getBubbleStyle from "./bubbleHeroData";
 import { heroData } from "../../db/mainDb";
-import { bubbleData } from "./bubbleHeroData";
-import { createBubble } from "../bubble";
 import { theme } from "../../global/theme";
-//CSS styling for each element
 
+//CSS styling for each element
 const StyledHero = styled.section`
   display: flex;
   position: relative;
@@ -27,7 +27,6 @@ const StyledHero = styled.section`
     padding-top: 5vw;
     padding-bottom: 10vw;
     padding-inline: 8vw;
-
   }
 
   .hero-text-container {
@@ -51,7 +50,7 @@ const StyledHero = styled.section`
 
     p {
       font-family: "Orkney";
-      
+
       @media (${theme.breakpoints.xs}) {
         font-size: 4.5vw;
       }
@@ -87,9 +86,9 @@ function Hero() {
         </div>
       </div>
       <div className="bubble-hero-container">
-        {createBubble(bubbleData.bubble1)}
-        {createBubble(bubbleData.bubble2)}
-        {createBubble(bubbleData.bubble3)}
+        <Bubble componentStylings={getBubbleStyle} type="bubble-1" />
+        <Bubble componentStylings={getBubbleStyle} type="bubble-2" />
+        <Bubble componentStylings={getBubbleStyle} type="bubble-3" />
       </div>
     </StyledHero>
   );

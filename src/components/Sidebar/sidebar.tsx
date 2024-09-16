@@ -2,14 +2,14 @@ import * as React from "react";
 import styled from "styled-components";
 import { sidebarData } from "../../db/mainDb";
 import { theme } from "../../global/theme";
-import { useMediaQuery } from '@mui/material';
+import { useMediaQuery } from "@mui/material";
 
 const StyledSidebar = styled.aside`
   display: flex;
   position: fixed;
   flex-direction: column;
   background-color: var(--cerulean-blue);
-  z-index: 2;
+  z-index: 3;
   top: 10vw;
   border-radius: 0 0.5vw 0.5vw 0;
 
