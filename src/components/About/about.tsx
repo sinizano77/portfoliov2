@@ -177,7 +177,7 @@ const StyledAbout = styled.section`
   }
 `;
 
-//todo?: have a global hook that can stop CSS animations/transitions on resize
+// todo?: have a global hook that can stop CSS animations/transitions on resize
 interface SteveProps {
   transition: string;
 }
@@ -215,7 +215,7 @@ const StyledSteve = styled.img<SteveProps>`
 function Steve() {
   const [isResizing, setIsResizing] = useState(false);
 
-  //stops CSS transition from playing on resize
+  // stops CSS transition from playing on resize
   useEffect(() => {
     let timer: any;
     function SetResizingState() {
@@ -244,20 +244,20 @@ function About() {
   return (
     <StyledAbout id="about">
       <Steve />
-      <Blade componentStylings={getBladeStyle} type="section">
+      <Blade componentstylings={getBladeStyle} type="section">
         <div className="section-container">
           <div className="about-container">
             <div className="bubble-about-container">
-              <Bubble componentStylings={getBubbleStyle} type="bubble-1" />
-              <Bubble componentStylings={getBubbleStyle} type="bubble-2" />
-              <Bubble componentStylings={getBubbleStyle} type="bubble-3" />
+              <Bubble componentstylings={getBubbleStyle} type="bubble-1" />
+              <Bubble componentstylings={getBubbleStyle} type="bubble-2" />
+              <Bubble componentstylings={getBubbleStyle} type="bubble-3" />
             </div>
             <div className="about-text-container">
               <h2>{aboutData.title}</h2>
-              <p>{aboutData.text1}</p>
-              <p>{aboutData.text2}</p>
-              <p>{aboutData.text3}</p>
-              <p>{aboutData.text4}</p>
+              <div>{aboutData.text1}</div>
+              <div>{aboutData.text2}</div>
+              <div>{aboutData.text3}</div>
+              <div>{aboutData.text4}</div>
             </div>
           </div>
 
@@ -302,7 +302,7 @@ function About() {
           alt="pikmin carrying React icon"
         />
       </div>
-      <Blade componentStylings={getBladeStyle} type="experience-top" />
+      <Blade componentstylings={getBladeStyle} type="experience-top" />
     </StyledAbout>
   );
 }

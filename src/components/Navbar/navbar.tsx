@@ -10,7 +10,7 @@ const StyledNavBar = styled.nav`
   display: flex;
   position: fixed;
   width: 100%;
-  z-index: 4;
+  z-index: 5;
   background-color: white;
   box-shadow: var(--shadow-bottom);
 
@@ -154,13 +154,13 @@ const StyledMenuIcon = styled.div`
   }
 `;
 
-//& self-references the class
+// & self-references the class
 const StyledDropdown = styled.div`
   display: flex;
   position: fixed;
   flex-direction: column;
   justify-content: center;
-  z-index: 3;
+  z-index: 4;
   min-width: 100%;
   min-height: 60vw;
   background-color: white;
@@ -308,7 +308,7 @@ function Navbar() {
     );
   }
 
-  //todo: dismount/mount dropdown based on isMenuOpen instead of CSS visiblity
+  // todo: dismount/mount dropdown based on isMenuOpen instead of CSS visiblity
   function updateMenu() {
     if (!isMenuOpen) {
       setLineClass("lines clicked");

@@ -1,14 +1,16 @@
 import * as React from "react";
 import styled from "styled-components";
 
+// todo?: superclass for Bubble and Blade since a lot of overlap code?
 interface BubbleProps {
-  componentStylings: Function;
+  componentstylings: (type: string) => string; // function for dynamic styling
   type: string;
 }
 
-//base stylings for all "Bubble" components
+// Base stylings for all "Bubble" components
+// Styled component with shouldForwardProp to prevent `componentstylings` and `type` from being forwarded to the DOM
 const StyledBubble = styled.div<BubbleProps>`
-  ${(props) => props.componentStylings(props.type)}
+  ${(props) => props.componentstylings(props.type)} /* Applying dynamic styles */
   position: relative;
   border-radius: 50%;
   border-style: solid;
@@ -17,11 +19,20 @@ const StyledBubble = styled.div<BubbleProps>`
   z-index: 3;
 `;
 
-function Bubble(props: any) {
+// Prevent the function prop `componentstylings` and `type` from being passed to the underlying DOM element
+// Since these props are only for internal logic use, don't pass them to make them publicly visible on inspect
+StyledBubble.shouldForwardProp = (prop: string) => {
+  return prop !== 'componentstylings' && prop !== 'type';
+};
+
+function Bubble(props: BubbleProps) {
+  const { componentstylings, type, ...rest } = props; // destructuring to avoid passing invalid props
+
   return (
     <StyledBubble
-      componentStylings={props.componentStylings}
-      type={props.type}
+      {...rest} // spreading the rest of the props here as they will be valid HTML attributes passed to the div
+      componentstylings={componentstylings}
+      type={type}
     />
   );
 }

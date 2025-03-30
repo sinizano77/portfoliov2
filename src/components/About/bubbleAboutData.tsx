@@ -3,7 +3,7 @@ import { theme } from "../../global/theme";
 
 function getBubbleStyle(type: string) {
   switch (type) {
-    case "bubble-1": {
+    case "bubble-1":
       return `
         border-color: var(--cerulean-blue);
         background-image: url("${aboutData.images.me2}");
@@ -22,8 +22,7 @@ function getBubbleStyle(type: string) {
           min-height: 17vw;
         }
       `;
-    }
-    case "bubble-2": {
+    case "bubble-2":
       return `
         border-color: var(--lime-green);
         background-image: url("${aboutData.images.me1}");
@@ -42,8 +41,7 @@ function getBubbleStyle(type: string) {
           min-height: 14vw;
         }
       `;
-    }
-    case "bubble-3": {
+    case "bubble-3":
       return `
         border-color: var(--yellow);
         background-image: url("${aboutData.images.steve2}");
@@ -62,8 +60,8 @@ function getBubbleStyle(type: string) {
           min-height: 11vw;
         }
       `;
-    }
   }
 }
+
 
 export default getBubbleStyle;

@@ -1,5 +1,5 @@
-//todo?: Migrate experience-top to be part of Experience component
-//todo: refactor layering and positioning css of pikmin-container and bottom blades
+// todo?: Migrate experience-top to be part of Experience component
+// todo: refactor layering and positioning css of pikmin-container and bottom blades
 function getBladeStyle(type: string) {
   switch (type) {
     case "section":

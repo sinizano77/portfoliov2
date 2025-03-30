@@ -3,7 +3,7 @@ import { theme } from "../../global/theme";
 
 function getBubbleStyle(type: string) {
   switch (type) {
-    case "bubble-1": {
+    case "bubble-1":
       return `
         border-color: var(--yellow);
         background-color: var(--cerulean-blue);
@@ -22,8 +22,7 @@ function getBubbleStyle(type: string) {
           min-height: 7vw;
         }
       `;
-    }
-    case "bubble-2": {
+    case "bubble-2": 
       return `
         border-color: var(--lime-green);
         background-color: var(--crimson-red);
@@ -42,8 +41,7 @@ function getBubbleStyle(type: string) {
           min-height: 4vw;
         }
       `;
-    }
-    case "bubble-3": {
+    case "bubble-3":
       return `
         border-color: var(--orange);
         background-image: url("${heroData.image}");
@@ -62,7 +60,6 @@ function getBubbleStyle(type: string) {
           min-height: 22vw;
         }
       `;
-    }
   }
 }
 

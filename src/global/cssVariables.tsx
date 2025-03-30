@@ -9,10 +9,11 @@ export const variables = css`
     --crimson-red: #ff3737;
     --orange: #ff5c00;
     --dark-grey: #343434;
-    --light-grey: #a7a7a7;
+    --grey: #a7a7a7;
+    --light-grey: #B0B0B0;
 
     --gradient: linear-gradient(180deg, white, #d9d9d9);
-    --shadow-bottom: 0 1vw 1vw -0.5vw rgba(0, 0, 0, 0.05);
+    --shadow-bottom: 0 1vw 1vw -0.5vw rgba(0, 0, 0, 0.1);
     --shadow-top: 0 -1vw 1vw -0.5vw rgba(0, 0, 0, 0.1);
     --transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
   }

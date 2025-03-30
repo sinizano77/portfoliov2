@@ -5,7 +5,7 @@ import getBubbleStyle from "./bubbleHeroData";
 import { heroData } from "../../db/mainDb";
 import { theme } from "../../global/theme";
 
-//CSS styling for each element
+// CSS styling for each element
 const StyledHero = styled.section`
   display: flex;
   position: relative;
@@ -86,9 +86,9 @@ function Hero() {
         </div>
       </div>
       <div className="bubble-hero-container">
-        <Bubble componentStylings={getBubbleStyle} type="bubble-1" />
-        <Bubble componentStylings={getBubbleStyle} type="bubble-2" />
-        <Bubble componentStylings={getBubbleStyle} type="bubble-3" />
+        <Bubble componentstylings={getBubbleStyle} type="bubble-1" />
+        <Bubble componentstylings={getBubbleStyle} type="bubble-2" />
+        <Bubble componentstylings={getBubbleStyle} type="bubble-3" />
       </div>
     </StyledHero>
   );

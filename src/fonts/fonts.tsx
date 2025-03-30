@@ -1,7 +1,7 @@
-/**import OrkneyBold from './Orkney/orkney-bold.woff';
-import OrkneyMedium from './Orkney/orkney-medium.woff';**/
+/**import OrkneyMedium from './Orkney/orkney-medium.woff';**/
 import OrkneyRegular from "./Orkney/orkney-regular.woff";
 import OrkneyLight from "./Orkney/orkney-light.woff";
+import OrkneyBold from './Orkney/orkney-bold.woff';
 
 import CelloSansLight from "./CelloSans/hinted-CelloSans-Light.woff";
 
@@ -29,6 +29,13 @@ export const fonts = `
     @font-face {
         font-family: 'OrkneyLight';
         src: url(${OrkneyLight}) format('woff');
+        font-weight: 100;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'OrkneyBold';
+        src: url(${OrkneyBold}) format('woff');
         font-weight: 100;
         font-style: normal;
     }

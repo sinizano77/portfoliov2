@@ -54,7 +54,7 @@ export const GlobalStyle = createGlobalStyle`
 
     @media (${theme.breakpoints.sm}) {
       font-size: 3.25vw;
-      text-underline-offset: 0.6vw;
+      text-underline-offset: 0.8vw;
       text-decoration: underline solid white;
       text-decoration-thickness: 0.2vw;
     }
@@ -73,6 +73,26 @@ export const GlobalStyle = createGlobalStyle`
 
     @media (${theme.breakpoints.sm}) {
       font-size: 2.25vw;
+      text-underline-offset: 0.6vw;
+      text-decoration: underline solid white;
+      text-decoration-thickness: 0.2vw;
+    }
+  }
+
+  h6 {
+    font-family: "OrkneyBold";
+    font-weight: 200;
+    margin-block: 0;
+
+    @media (${theme.breakpoints.xs}) {
+      font-size: 5.5vw;
+      text-underline-offset: 1.5vw;
+      text-decoration: underline solid white;
+      text-decoration-thickness: 0.4vw;
+    }
+
+    @media (${theme.breakpoints.sm}) {
+      font-size: 1.75vw;
       text-underline-offset: 0.6vw;
       text-decoration: underline solid white;
       text-decoration-thickness: 0.2vw;
