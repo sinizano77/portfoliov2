@@ -26,7 +26,7 @@ const StyledUnderConstruction = styled.section`
   display: flex;
   position: relative;
   width: 100%;
-  background-color: #909090;
+  background-color: var(--slate-grey);
   color: white;
   padding: 3.5vw 0;
 

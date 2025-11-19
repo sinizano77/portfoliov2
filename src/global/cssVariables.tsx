@@ -10,6 +10,7 @@ export const variables = css`
     --orange: #ff5c00;
     --dark-grey: #343434;
     --grey: #a7a7a7;
+    --slate-grey: #909090;
     --light-grey: #B0B0B0;
 
     --gradient: linear-gradient(180deg, white, #d9d9d9);
